@@ -34,7 +34,7 @@
 3. **更容易排查交接故障**：流式进度、精确会话恢复和明确失败状态，为中断、超时、缺失终止结果及额度错误提供排查依据。配套模拟 CLI 测试可在不消耗模型额度的情况下检查桥接行为。
 4. **便于复用和审阅**：插件快照、协作技能、桥接代码、安装脚本和来源说明分别存放，包含锁文件与内容清单；可审查规则后用于不同 Unity 项目。
 
-上述价值来自流程约定与适配实现，尚无跨项目效率、成本或生成质量的对照实测。当前也没有跨进程锁、持久化任务队列或无人值守调度；Windows 安装脚本及 CLI 适配仍需在实际账户环境中验证，不能将离线测试通过等同于完整生产验证。
+上述价值来自流程约定与适配实现，尚无跨项目效率、成本或生成质量的对照实测。当前也没有跨进程锁、持久化任务队列或无人值守调度；各平台安装入口及 CLI 适配仍需在实际账户环境中验证，不能将离线测试通过等同于完整生产验证。
 
 ## 目录
 
@@ -71,6 +71,62 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/install.ps1
 可用 `-CodexHome <目录>` 指定技能位置，`-CodelyEntry <绝对路径>` 指定 CLI 的 `bundle/gemini.js`。MCP 注册由当前 `codex` 命令的用户配置决定；自定义 CodexHome 时请同时为该命令设置 `CODEX_HOME`。
 
 安装后新开 Codex 会话。将 [项目规则片段](examples/AGENTS.collaboration.md) 按需合入目标 Unity 项目的 AGENTS.md；安装器不会覆盖任何项目规则。使用示例：“对当前 Unity 项目的存档功能使用 $cowork-collaboration；你负责架构，Codely 实现已确定的技术任务。”
+
+## macOS 安装
+
+macOS 使用 Python 安装入口，无需 PowerShell。先安装 Git、Python 3、Node.js/npm 和 Codex，并确认 `git`、`python3`、`node`、`npm`、`codex` 在当前终端的 PATH 中。离线 CI 使用 Node.js 24；[Codely Nightly 官方指南](https://codely-docs.tuanjie.cn/using-codely/codely-cli-nightly/)目前推荐 Node.js 26.4 或更高版本，请优先满足实际 CLI 的要求。
+
+### 1. 安装并登录 Codely CLI
+
+按官方指南安装；其 macOS 命令为：
+
+```bash
+curl -fsSL "https://codesearch-plugins.tos-cn-shanghai.volces.com/codely-cli/install.sh" | bash
+codely --version
+codely
+```
+
+最后一条命令用于账户登录。若已安装旧公版，先按官方指南处理版本冲突。本项目不自动运行该安装器；权限及 macOS 系统提示按官方指南处理。账户额度和模型访问需要单独确认。
+
+### 2. 下载、验证和安装本项目
+
+```bash
+git clone https://github.com/yyhtc2-ai/Unity-Agent-Workflow.git
+cd Unity-Agent-Workflow
+
+# 不调用模型的构建、桥接集成测试和交接工具测试
+python3 scripts/verify.py
+
+# 只检查依赖、目标目录和 MCP 配置，不复制或修改配置
+python3 scripts/install.py --dry-run
+
+# 安装技能并注册 codely_bridge
+python3 scripts/install.py
+```
+
+已有 Agent Foundry 插件时，预检和安装均添加 `--skip-foundry`。默认技能目录为 `~/.codex/skills`；自定义目录请提前设置 `CODEX_HOME`，先创建该目录，该变量也会传给 `codex mcp`。已有同名技能或 `codely_bridge` 时安装器停止，不覆盖现有配置。中途失败可能留下已复制的技能，需检查后再重试。
+
+安装器通过 `npm root -g` 查找 `@codely/cli/bundle/gemini.js`，兼容不同 npm 前缀；也可指定入口：
+
+```bash
+python3 scripts/install.py --skip-foundry --codely-entry "/absolute/path/to/@codely/cli/bundle/gemini.js"
+codex mcp get codely_bridge
+```
+
+安装后新开 Codex 会话，按前文说明合入项目规则，协作仍须用户明确启用。注册使用 Node 和仓库绝对路径，因此不要移动仓库；切换 nvm 等工具的 Node 版本后，若原路径失效，需更新 MCP 配置。Unity 项目使用本机绝对路径，例如 `/Users/yourname/Projects/MyGame`，Editor 位置及连接也需在本机确认。
+
+### 兼容性检查范围
+
+| 组件 | 检查结果与边界 |
+| --- | --- |
+| MCP 桥接器 | 使用 Node 直接启动 CLI、标准路径接口和进程信号；已审查 macOS 路径，Windows 离线测试通过 |
+| 安装与验证 | 新增跨平台 `install.py`、`verify.py`；原 `.ps1` 保留供 Windows 使用 |
+| 已安装 CLI 检查 | 移除 `APPDATA` 固定路径，改用 npm 全局目录或 `BRIDGE_CODELY_ENTRY`；构建后在 `bridge/codely` 内运行 `node tests/installed-mcp.mjs`，只检查入口和 MCP 工具发现，不调用模型 |
+| 交接数据库 | 使用 Python 标准库 `pathlib` 和 SQLite，遵循 `CODEX_HOME` 或用户主目录 |
+| Agent Foundry / Unity 工具 | 保留上游快照，未逐项执行全部技能，未验证 Mac Editor、原生依赖和其他外部集成 |
+| Apple Silicon / Intel | 本次未新增原生二进制依赖；Node、Codely、Unity 的架构支持取决于其发行版本，未完成双架构实机验证 |
+
+已添加 [跨平台离线 CI](.github/workflows/compatibility.yml)，在 macOS、Windows 和 Linux runner 上执行构建、模拟 CLI 集成测试及交接工具测试。结果以仓库 Actions 为准；CI 不安装 Codely、不登录账户、不启动 Unity。当前改动在 Windows 完成，不能据此声称 Mac 上的真实 Codely/Unity 链路已验证。
 
 ## 验证和已知限制
 

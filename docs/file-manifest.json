@@ -1,13 +1,29 @@
 {
-  "description": "Packaged source snapshot; excludes generated files and this manifest itself",
+  "description": "Git source blob SHA256; excludes generated files and this manifest itself",
   "files": [
     {
+      "path": ".gitattributes",
+      "sha256": "cafec4e3015eac7ae8462d953d9eee4ee876d7d900c547e87afb3f9ddbd99dca"
+    },
+    {
+      "path": ".github/workflows/compatibility.yml",
+      "sha256": "292807772c12aa4b8eb633226a261c52a0b3f886f69a6a3d456bd246d450e47d"
+    },
+    {
       "path": ".gitignore",
-      "sha256": "3f0073cca377c9c5232b7d907082e0dcd1e40cc3ea39f30cc6c17906df552e2e"
+      "sha256": "2a0d98733f64d6fe6227ff847bdbb270b7586dd0209da27cc7bcbaf9dc58085b"
     },
     {
       "path": "AGENTS.md",
-      "sha256": "9cf16673667a398419ae3793b4f81721279d60e91750a04ced178b34f497cb25"
+      "sha256": "3d81693f73c2e34173655b01d97e57695b2a2216b530776aefb754355c6704cb"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "354a287079fc5987d6a73fdcdc581b9e822136dada711b60f79b2d855414f396"
+    },
+    {
+      "path": "README.md",
+      "sha256": "702ace21467420743f34760ddadae963537e4f43e725295a61b1dae4538b3e23"
     },
     {
       "path": "bridge/codely/CODELY-BRIDGE.md",
@@ -15,43 +31,43 @@
     },
     {
       "path": "bridge/codely/LICENSE",
-      "sha256": "3971ec85ac634210c6998051b20ffa74aac37cf273df43889ae136cdfdb5051e"
+      "sha256": "6aa5795aecf6017d8d598db7b1736cf14806b280abb52676a0e008b669ad0aa3"
     },
     {
       "path": "bridge/codely/package-lock.json",
-      "sha256": "e65b4884a64760d90be3c558bf63944a2f636dda3ad1d720e88339c7c74836d8"
+      "sha256": "2d9dc1ae50e304d0c04c48293059e85d7497b813f2079c8dc88f9e742bb5e702"
     },
     {
       "path": "bridge/codely/package.json",
-      "sha256": "f9a349048b9a3fc68c5ca37315608965be77d1c06f448a3fef1327052c4cb781"
+      "sha256": "1dcdfb4b998db58c15ed1ee6f221f9d289693544b5062b281da31416259a3d9a"
     },
     {
       "path": "bridge/codely/src/cli.ts",
-      "sha256": "2b4bd0bbf975f7a8bff4dbba5e37bff4b0d00f75ecf2d6d55e80e6aaade43933"
+      "sha256": "434209f88e503611d141b8061b3b96ac9030b2c455f84482e25e967017ecc6cd"
     },
     {
       "path": "bridge/codely/src/config.ts",
-      "sha256": "d870c450f9820968e8a1da96e63019ae53e53327a561c3c2f685a6391183a843"
+      "sha256": "c997275c6cc8aeed58e009a8f82e97aef06e81cf8121cfa6594664c69ba4d330"
     },
     {
       "path": "bridge/codely/src/debug.ts",
-      "sha256": "4f86c30af4aaa04184d719e35483de53aa0317f003a426b351938ad1017f7a9e"
+      "sha256": "2ac362dc4a9657327e26c4e32d606e715546654fcb0d9a4383c855f031af7334"
     },
     {
       "path": "bridge/codely/src/exec.ts",
-      "sha256": "270bbeda4c6930b1e786b230ef43ad735666c3baac11e4bca8a06e13e5ef9211"
+      "sha256": "f3375671c44df685702cb3aa277b12f715a438f43dd8ecd1b8cc7e865e3f9a57"
     },
     {
       "path": "bridge/codely/src/jobs.ts",
-      "sha256": "af64699f3bbaf39ddba1b573e84990397330cf54c37a8e5960d465da15c720d8"
+      "sha256": "30d8bcd591bf30e9a8122c6fe948d9a345bc8b0ae5dc6e16d69d7b6f41786660"
     },
     {
       "path": "bridge/codely/src/registry.ts",
-      "sha256": "93ba2a58c1456d108b8e6ad3f09f6ee6f67af6fb9ef489dba80d3db6b70e0645"
+      "sha256": "cdeaae47f1de012ac8f8f67c9037670b84af5e7e6e0cf585450db686e3766daa"
     },
     {
       "path": "bridge/codely/src/runners/claude.ts",
-      "sha256": "3c5f751b663647a063e81d7631840d4be666294f307ee5a6d5711ba95fb14e19"
+      "sha256": "b768d83a95e275d2321b4269d19297f703bc6f31ee0370899ed0ca7af1a122d0"
     },
     {
       "path": "bridge/codely/src/runners/codely.ts",
@@ -59,23 +75,23 @@
     },
     {
       "path": "bridge/codely/src/runners/codex.ts",
-      "sha256": "6e7b72745b478c732ada656ecb95b58cc2a2e1fb6d0c9b0f65451ad9ccb1e3ea"
+      "sha256": "47b9021c56b7281031882a3bc8e569bdb89ff57d86e09f8a9f4a2f6b3910ddbc"
     },
     {
       "path": "bridge/codely/src/runners/gemini.ts",
-      "sha256": "0e271d73112e8f091c79af986afd2195b33f97c70d8a986f8699f9d4ce36442b"
+      "sha256": "b024679a477f41516d9fb033398cdb6cccd56107f4f8e6bf6f1582950e92eb0b"
     },
     {
       "path": "bridge/codely/src/server.ts",
-      "sha256": "966dfb79d6415733dc75858b74cccafac96be96c04aeca6a20afa82623690fa6"
+      "sha256": "21f3302b6a1af38ee6f2defe34a6c8fc562aba5df3e77887cac60ab7b772a3db"
     },
     {
       "path": "bridge/codely/src/sessions.ts",
-      "sha256": "3b8601a351d23f79ac53050b1b09713fc2172cd1b5913f063dd8ecc2eddb8d9b"
+      "sha256": "020bc2dc42ce3c704c129b00db87888da0a6b130e46d0ee42ca85ceb65011388"
     },
     {
       "path": "bridge/codely/src/setup.ts",
-      "sha256": "1fdd5245d7b9154f97a1c9617d6c468642914fc5fed051ac8f6dbbcfe4cb2fbb"
+      "sha256": "df9647f6d1fe417c8ff089b139929d7f7b5c9e31671aeb935058b78d4abd40a4"
     },
     {
       "path": "bridge/codely/tests/codely-mcp.mjs",
@@ -87,27 +103,23 @@
     },
     {
       "path": "bridge/codely/tests/installed-mcp.mjs",
-      "sha256": "6b10165519c931239a0535fec3003bc0b1ac9b82300e4a133411124ac6406766"
+      "sha256": "f9c8f67351b2245adf8395925eea05e78fdc80a8b0a3b537880c8b5a7636a96f"
     },
     {
       "path": "bridge/codely/tsconfig.json",
-      "sha256": "e77da9dfd2ec9c5a75c1efe5399adffeca6a28c1d701bc4767b2ed8baf4a0713"
+      "sha256": "62c2190d56f991b3323e6ad7f0e8f109cf0d30d7e75b4af1d6d69e7f6a3a1752"
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "0c36ef93373430270e5b08b21dc0dcc2616a3b34d6013ef4b5951e2200a20e74"
+      "sha256": "13761b615514d520bc6cca175f3b1353d440e79ce228d227c3a15f421ff2fb1e"
     },
     {
       "path": "docs/THIRD_PARTY.md",
-      "sha256": "5b044569b49be981a747a9c9d09d51105b9d2dee702479be3a66b202eba358f3"
+      "sha256": "9474084de1b15b10dc41f62119a1876471282b3291fd9ed629815179ee9c6076"
     },
     {
       "path": "examples/AGENTS.collaboration.md",
-      "sha256": "95a040116260f3a92e65bf5fd44f9bd16eb9db623d17f254fd46a4cea4727bcd"
-    },
-    {
-      "path": "LICENSE",
-      "sha256": "bb69b337e83ce14a98ca108837515bbeb1e6e41691ccaabdedb7a3650ee1443e"
+      "sha256": "54cee067e5ef8fdfe71c9ec9fb2764dc2aa79cb11478f1682bf6fcfa17e23192"
     },
     {
       "path": "plugins/agent-foundry/.claude-plugin/plugin.json",
@@ -116,6 +128,18 @@
     {
       "path": "plugins/agent-foundry/.codex-plugin/plugin.json",
       "sha256": "d5ccf34ccf01642434e1ca6bb9782c4f71f899074db9e81c31857e56684be459"
+    },
+    {
+      "path": "plugins/agent-foundry/LICENSE",
+      "sha256": "cd460c040864dd373a31066455c03e774484d242331f95aee9fb2341ac585eeb"
+    },
+    {
+      "path": "plugins/agent-foundry/THIRD_PARTY_NOTICES.md",
+      "sha256": "3a92184f123367525b734efe55a0a52bede69cce3c1944912bd5384e33e56885"
+    },
+    {
+      "path": "plugins/agent-foundry/UNITY_COMPANION_LICENSE.md",
+      "sha256": "3aa49b3ed3521563a08c0d9d9327ef8bcee75efe92137c572a4f2216f8f641df"
     },
     {
       "path": "plugins/agent-foundry/agents/unity-bugfixer.md",
@@ -158,24 +182,24 @@
       "sha256": "ce5e5a3cd25da3fda335cbb6d3e32382b21c9795fdc45fd73ace4dbf6ba001ec"
     },
     {
-      "path": "plugins/agent-foundry/LICENSE",
-      "sha256": "cd460c040864dd373a31066455c03e774484d242331f95aee9fb2341ac585eeb"
-    },
-    {
       "path": "plugins/agent-foundry/skills/adaptive-skills/SKILL.md",
       "sha256": "69415888513513103d0b2062682aebffc6b178f40b811200fbfe95664c2908f2"
-    },
-    {
-      "path": "plugins/agent-foundry/skills/adopt/references/claude-skill.md",
-      "sha256": "c2174abb181f639f79e2da3826d2402f46f726eac59f073b60abf086e6f3fceb"
     },
     {
       "path": "plugins/agent-foundry/skills/adopt/SKILL.md",
       "sha256": "969292ce7cc41dde81efc051cf7a924c424778eaa22db79d2a3b45c7fff2ec02"
     },
     {
+      "path": "plugins/agent-foundry/skills/adopt/references/claude-skill.md",
+      "sha256": "c2174abb181f639f79e2da3826d2402f46f726eac59f073b60abf086e6f3fceb"
+    },
+    {
       "path": "plugins/agent-foundry/skills/agent-orchestration/LICENSE",
       "sha256": "c108d012cb8624f5731dd36491a3b61c63df9d7a9d869af2776aa7e3a79b2299"
+    },
+    {
+      "path": "plugins/agent-foundry/skills/agent-orchestration/SKILL.md",
+      "sha256": "6ec8697e66e47c0a71e751a48160b1f6a76edb50cc05f9f8c99f6973c656b11b"
     },
     {
       "path": "plugins/agent-foundry/skills/agent-orchestration/references/assignment-contract.md",
@@ -202,88 +226,88 @@
       "sha256": "b0ece188cb37d9aca8befb912f1ca8262cc1f84faa849760556c4b8d6599866c"
     },
     {
-      "path": "plugins/agent-foundry/skills/agent-orchestration/SKILL.md",
-      "sha256": "6ec8697e66e47c0a71e751a48160b1f6a76edb50cc05f9f8c99f6973c656b11b"
+      "path": "plugins/agent-foundry/skills/architecture-decision/SKILL.md",
+      "sha256": "fd21081bef0b753351f17b9311129dba368ba949a3f1839c1f427e0469a348c2"
     },
     {
       "path": "plugins/agent-foundry/skills/architecture-decision/references/claude-skill.md",
       "sha256": "4dd4534c8b39ed5f366c36bda338bc66729d849ff0b43eb963157b710db931da"
     },
     {
-      "path": "plugins/agent-foundry/skills/architecture-decision/SKILL.md",
-      "sha256": "fd21081bef0b753351f17b9311129dba368ba949a3f1839c1f427e0469a348c2"
+      "path": "plugins/agent-foundry/skills/architecture-review/SKILL.md",
+      "sha256": "157d50d256c1f610894204a10f5e5c5c9fd5314b7159b7f1314480fd0a5657d0"
     },
     {
       "path": "plugins/agent-foundry/skills/architecture-review/references/claude-skill.md",
       "sha256": "295d403443469fa2f15bc555e4c7e4f58da1ef3ab39b44e12b602ec361d1a636"
     },
     {
-      "path": "plugins/agent-foundry/skills/architecture-review/SKILL.md",
-      "sha256": "157d50d256c1f610894204a10f5e5c5c9fd5314b7159b7f1314480fd0a5657d0"
+      "path": "plugins/agent-foundry/skills/art-bible/SKILL.md",
+      "sha256": "d318298edc81c91ca6866c50afaa0fdfef9c2bda9658a1d54d435636eb9cf977"
     },
     {
       "path": "plugins/agent-foundry/skills/art-bible/references/claude-skill.md",
       "sha256": "6bc2a769a5aa126f34dd6f6e5407a5d0b3ecea41c2f998bb61a56be0bb7ecf2e"
     },
     {
-      "path": "plugins/agent-foundry/skills/art-bible/SKILL.md",
-      "sha256": "d318298edc81c91ca6866c50afaa0fdfef9c2bda9658a1d54d435636eb9cf977"
+      "path": "plugins/agent-foundry/skills/asset-audit/SKILL.md",
+      "sha256": "576c78e0f278579a73094ae69673f6f00197ddcbb70545d2144737f7798973ec"
     },
     {
       "path": "plugins/agent-foundry/skills/asset-audit/references/claude-skill.md",
       "sha256": "0515cf979d29146e9f10d10d4c9739edc1f120435ddbbf6d1dd1b40858f06c10"
     },
     {
-      "path": "plugins/agent-foundry/skills/asset-audit/SKILL.md",
-      "sha256": "576c78e0f278579a73094ae69673f6f00197ddcbb70545d2144737f7798973ec"
+      "path": "plugins/agent-foundry/skills/asset-spec/SKILL.md",
+      "sha256": "46dbeb083d2a00334205d1f6a9712b2894f55ecd57123eff53784ce02e8c3c38"
     },
     {
       "path": "plugins/agent-foundry/skills/asset-spec/references/claude-skill.md",
       "sha256": "330a919310d483f9b52ff7f7d700d31f2c39bed28a22bff4ba381b733f996122"
     },
     {
-      "path": "plugins/agent-foundry/skills/asset-spec/SKILL.md",
-      "sha256": "46dbeb083d2a00334205d1f6a9712b2894f55ecd57123eff53784ce02e8c3c38"
+      "path": "plugins/agent-foundry/skills/balance-check/SKILL.md",
+      "sha256": "97e794d7a7d7447b6fa3887432110fdf76b380cf6e4a9dc389d182695915150f"
     },
     {
       "path": "plugins/agent-foundry/skills/balance-check/references/claude-skill.md",
       "sha256": "0c19744a9edf982aa3e05ecd9103fe6c325bcb50ce0014ce101460ec2d4827e5"
     },
     {
-      "path": "plugins/agent-foundry/skills/balance-check/SKILL.md",
-      "sha256": "97e794d7a7d7447b6fa3887432110fdf76b380cf6e4a9dc389d182695915150f"
+      "path": "plugins/agent-foundry/skills/brainstorm/SKILL.md",
+      "sha256": "ba716d3d4f344412a64b82a973162ad907b0c206d9829f7eadc15ec9a4fc2c4f"
     },
     {
       "path": "plugins/agent-foundry/skills/brainstorm/references/claude-skill.md",
       "sha256": "671e1cad0b1f47aea1715e5b8b9e77dc17bb61ce5080eea20375882322f10606"
     },
     {
-      "path": "plugins/agent-foundry/skills/brainstorm/SKILL.md",
-      "sha256": "ba716d3d4f344412a64b82a973162ad907b0c206d9829f7eadc15ec9a4fc2c4f"
+      "path": "plugins/agent-foundry/skills/bug-report/SKILL.md",
+      "sha256": "95cf3c79d6871bcac5c1e8492be1f4d0c41364c68cf7f7875a7b888f6f027030"
     },
     {
       "path": "plugins/agent-foundry/skills/bug-report/references/claude-skill.md",
       "sha256": "846d5718543ef0dcdaf2bf8b095420eabd5f79ab10403b53dabcf5988f94f527"
     },
     {
-      "path": "plugins/agent-foundry/skills/bug-report/SKILL.md",
-      "sha256": "95cf3c79d6871bcac5c1e8492be1f4d0c41364c68cf7f7875a7b888f6f027030"
+      "path": "plugins/agent-foundry/skills/bug-triage/SKILL.md",
+      "sha256": "50fd3b47cf9d2c0d9d8ff30e9784d9e0759dd7c52373e4e5aa2ea65525f708eb"
     },
     {
       "path": "plugins/agent-foundry/skills/bug-triage/references/claude-skill.md",
       "sha256": "d92962f1c226d5399763adc0b7c00206c93a031940cd79f59a3e1636a703ead7"
     },
     {
-      "path": "plugins/agent-foundry/skills/bug-triage/SKILL.md",
-      "sha256": "50fd3b47cf9d2c0d9d8ff30e9784d9e0759dd7c52373e4e5aa2ea65525f708eb"
+      "path": "plugins/agent-foundry/skills/changelog/SKILL.md",
+      "sha256": "37a814f5dffbf77ad0d1dc74591ede9ed356141da5bf98c40f4cb07a3e94aa6a"
     },
     {
       "path": "plugins/agent-foundry/skills/changelog/references/claude-skill.md",
       "sha256": "08b360a2adb557689df2bf842ab496b032e165e9dcf1b0540dfc79df7630d728"
     },
     {
-      "path": "plugins/agent-foundry/skills/changelog/SKILL.md",
-      "sha256": "37a814f5dffbf77ad0d1dc74591ede9ed356141da5bf98c40f4cb07a3e94aa6a"
+      "path": "plugins/agent-foundry/skills/clean-oop-architecture/SKILL.md",
+      "sha256": "d4f8cd791fd9c7f7adb7d51d6da5207c715dd3bc24aba744a4ae2902ad6a5940"
     },
     {
       "path": "plugins/agent-foundry/skills/clean-oop-architecture/references/clean-code-review.md",
@@ -314,56 +338,56 @@
       "sha256": "33786a0e2a05fe64dff36d73e0b65f1a820adc60cd68b8f83824902c842eb0d0"
     },
     {
-      "path": "plugins/agent-foundry/skills/clean-oop-architecture/SKILL.md",
-      "sha256": "d4f8cd791fd9c7f7adb7d51d6da5207c715dd3bc24aba744a4ae2902ad6a5940"
+      "path": "plugins/agent-foundry/skills/consistency-check/SKILL.md",
+      "sha256": "a0b07554065a2b388161189f49206adcf9c358f4df3a67dbe3d8b8ba40397a3c"
     },
     {
       "path": "plugins/agent-foundry/skills/consistency-check/references/claude-skill.md",
       "sha256": "450110824d567f38ce4bc78dd9291f42f254cc3dcc1e9a353baf3243d11455b5"
     },
     {
-      "path": "plugins/agent-foundry/skills/consistency-check/SKILL.md",
-      "sha256": "a0b07554065a2b388161189f49206adcf9c358f4df3a67dbe3d8b8ba40397a3c"
+      "path": "plugins/agent-foundry/skills/content-audit/SKILL.md",
+      "sha256": "3e0bbaaf42b6e1dfd46adb89497a51a3e8a5883f22bfcbba6160363e35b3d6a6"
     },
     {
       "path": "plugins/agent-foundry/skills/content-audit/references/claude-skill.md",
       "sha256": "518b5bf445c27a208b04df7b94acd831244b13dbcb9e3630bf38fbd3d39b3eae"
     },
     {
-      "path": "plugins/agent-foundry/skills/content-audit/SKILL.md",
-      "sha256": "3e0bbaaf42b6e1dfd46adb89497a51a3e8a5883f22bfcbba6160363e35b3d6a6"
+      "path": "plugins/agent-foundry/skills/create-architecture/SKILL.md",
+      "sha256": "0cf3184facbaf7a35cd8b2dd292bea6f7cc770638d5dd677918e7658a1611484"
     },
     {
       "path": "plugins/agent-foundry/skills/create-architecture/references/claude-skill.md",
       "sha256": "31f34506631a3e57d2bf130cbbb7059a10e23303391079315c3ae3a927c04a89"
     },
     {
-      "path": "plugins/agent-foundry/skills/create-architecture/SKILL.md",
-      "sha256": "0cf3184facbaf7a35cd8b2dd292bea6f7cc770638d5dd677918e7658a1611484"
+      "path": "plugins/agent-foundry/skills/create-control-manifest/SKILL.md",
+      "sha256": "4f0ebf079d5a6914b379fa5d4f5b9156e168adb27da63e8db047cd6b399c63ea"
     },
     {
       "path": "plugins/agent-foundry/skills/create-control-manifest/references/claude-skill.md",
       "sha256": "48ddc7cc174fcf133afce94d3f60132ebde38713ec21c0a050e8b9378311d152"
     },
     {
-      "path": "plugins/agent-foundry/skills/create-control-manifest/SKILL.md",
-      "sha256": "4f0ebf079d5a6914b379fa5d4f5b9156e168adb27da63e8db047cd6b399c63ea"
+      "path": "plugins/agent-foundry/skills/create-epics/SKILL.md",
+      "sha256": "6b7cc181d6bb74e29ab2a735041b4964ce2d9130157013a3369a750207e0eee0"
     },
     {
       "path": "plugins/agent-foundry/skills/create-epics/references/claude-skill.md",
       "sha256": "b721579be8a3321cb7f8eb3d0ba3e3e23c6a1fbf93924ce0ca268fc12310a9bd"
     },
     {
-      "path": "plugins/agent-foundry/skills/create-epics/SKILL.md",
-      "sha256": "6b7cc181d6bb74e29ab2a735041b4964ce2d9130157013a3369a750207e0eee0"
+      "path": "plugins/agent-foundry/skills/create-stories/SKILL.md",
+      "sha256": "6de4984dcd6d4f09a31092d770cb9692e4e17727e80ca70f3d631f18e819a6e1"
     },
     {
       "path": "plugins/agent-foundry/skills/create-stories/references/claude-skill.md",
       "sha256": "a07e1b5459066fd9dccfbc857c5fad4ea885ac123a2de580371de532ce9cd4fb"
     },
     {
-      "path": "plugins/agent-foundry/skills/create-stories/SKILL.md",
-      "sha256": "6de4984dcd6d4f09a31092d770cb9692e4e17727e80ca70f3d631f18e819a6e1"
+      "path": "plugins/agent-foundry/skills/create-task/SKILL.md",
+      "sha256": "49cda60aa6f259a0238a832f0fcbcfd1abaa00788775f8dbb9cca495c74fa2a2"
     },
     {
       "path": "plugins/agent-foundry/skills/create-task/agents/openai.yaml",
@@ -374,56 +398,56 @@
       "sha256": "3a00a0c17782202eb2f6f1da718b1711cdbc6e7297db951537bc8518dff13f1b"
     },
     {
-      "path": "plugins/agent-foundry/skills/create-task/SKILL.md",
-      "sha256": "49cda60aa6f259a0238a832f0fcbcfd1abaa00788775f8dbb9cca495c74fa2a2"
+      "path": "plugins/agent-foundry/skills/daily-handoff/SKILL.md",
+      "sha256": "afbfc6476ec2b72494e9f0748758194ea5902810e4ea425da1e34e294457fff6"
     },
     {
       "path": "plugins/agent-foundry/skills/daily-handoff/agents/openai.yaml",
       "sha256": "458bed66f899c4b584a8492c011624a1b4cde7321944195848372c1619474665"
     },
     {
-      "path": "plugins/agent-foundry/skills/daily-handoff/SKILL.md",
-      "sha256": "afbfc6476ec2b72494e9f0748758194ea5902810e4ea425da1e34e294457fff6"
+      "path": "plugins/agent-foundry/skills/day-one-patch/SKILL.md",
+      "sha256": "d5171cf4f1a7945245312869bddb1fd64f28f9df1181ab28af82cd47b9437b3e"
     },
     {
       "path": "plugins/agent-foundry/skills/day-one-patch/references/claude-skill.md",
       "sha256": "835eefd57319897efdac8724f5215b6c2f6bde0bb5ea089dcc2e04d7f0fe9043"
     },
     {
-      "path": "plugins/agent-foundry/skills/day-one-patch/SKILL.md",
-      "sha256": "d5171cf4f1a7945245312869bddb1fd64f28f9df1181ab28af82cd47b9437b3e"
+      "path": "plugins/agent-foundry/skills/design-review/SKILL.md",
+      "sha256": "cb31e4e9dbd5c5e4a6126da68d9da2cc1614969dacf61745c5455aac68e1c48c"
     },
     {
       "path": "plugins/agent-foundry/skills/design-review/references/claude-skill.md",
       "sha256": "86cb2f5b96b205b0ecfc2583fad9361f878be07250f5ccd063b30a17fae2daa5"
     },
     {
-      "path": "plugins/agent-foundry/skills/design-review/SKILL.md",
-      "sha256": "cb31e4e9dbd5c5e4a6126da68d9da2cc1614969dacf61745c5455aac68e1c48c"
+      "path": "plugins/agent-foundry/skills/design-system/SKILL.md",
+      "sha256": "90ee71898679b379ac628e4191a9eb5cae5771dd7834d57955b0731903668183"
     },
     {
       "path": "plugins/agent-foundry/skills/design-system/references/claude-skill.md",
       "sha256": "fdb57a20489657b8d6ed0fd0ab72e8d7de580086eff3ddf72b119afc098872ac"
     },
     {
-      "path": "plugins/agent-foundry/skills/design-system/SKILL.md",
-      "sha256": "90ee71898679b379ac628e4191a9eb5cae5771dd7834d57955b0731903668183"
+      "path": "plugins/agent-foundry/skills/dev-story/SKILL.md",
+      "sha256": "7dd299dfdab3d278cf6bc7c1fe65af16435d2e60d9aeaa5c71b3d349fdb4c7f7"
     },
     {
       "path": "plugins/agent-foundry/skills/dev-story/references/claude-skill.md",
       "sha256": "2badb7b2c463a8cb31ea7bf53c249e1bec2c383c4f230b91a1687901a1b66f3f"
     },
     {
-      "path": "plugins/agent-foundry/skills/dev-story/SKILL.md",
-      "sha256": "7dd299dfdab3d278cf6bc7c1fe65af16435d2e60d9aeaa5c71b3d349fdb4c7f7"
+      "path": "plugins/agent-foundry/skills/estimate/SKILL.md",
+      "sha256": "c4a7e0a4163bff9bff90b15dc01a5f35e7dd66db7cce7c39266d7d5db108762d"
     },
     {
       "path": "plugins/agent-foundry/skills/estimate/references/claude-skill.md",
       "sha256": "1965cd5ba6bfa4a0c3acdc1c79f415c2ede627b80fd38d5cf79fd2315573c8a1"
     },
     {
-      "path": "plugins/agent-foundry/skills/estimate/SKILL.md",
-      "sha256": "c4a7e0a4163bff9bff90b15dc01a5f35e7dd66db7cce7c39266d7d5db108762d"
+      "path": "plugins/agent-foundry/skills/firebase-game-backend/SKILL.md",
+      "sha256": "2084ec87a7a6e04c1ed6974949e5ea0a21e82d17960ade4eed4fcd1d88ea39ac"
     },
     {
       "path": "plugins/agent-foundry/skills/firebase-game-backend/references/firebase-stack.md",
@@ -442,20 +466,24 @@
       "sha256": "afffacf9fbd401437a725308dc7bf61077dc33b9a770831046f33f0c05528393"
     },
     {
-      "path": "plugins/agent-foundry/skills/firebase-game-backend/SKILL.md",
-      "sha256": "2084ec87a7a6e04c1ed6974949e5ea0a21e82d17960ade4eed4fcd1d88ea39ac"
-    },
-    {
       "path": "plugins/agent-foundry/skills/game-code-review/SKILL.md",
       "sha256": "fe79fc4221fec30e3a540c2cd065a8831862b7b51371a0d43c55d479c62f0911"
+    },
+    {
+      "path": "plugins/agent-foundry/skills/game-design-studio/SKILL.md",
+      "sha256": "8f2976c1ef7ffc3b403e1c2ab93d5d7ddb1b53f3a10f482f5feeeb7e9bc6ddea"
     },
     {
       "path": "plugins/agent-foundry/skills/game-design-studio/references/design-checklists.md",
       "sha256": "595f820bca6a339f9d7aa463e5435cc54bf73f77cc90e2b1758c24b12f558850"
     },
     {
-      "path": "plugins/agent-foundry/skills/game-design-studio/SKILL.md",
-      "sha256": "8f2976c1ef7ffc3b403e1c2ab93d5d7ddb1b53f3a10f482f5feeeb7e9bc6ddea"
+      "path": "plugins/agent-foundry/skills/game-feel-polish/SKILL.md",
+      "sha256": "790a6cdb0e5a99a6456ec54b7ca8823105b2112d1fac5fa5d2ebf2d0c7b0f757"
+    },
+    {
+      "path": "plugins/agent-foundry/skills/game-feel-polish/THIRD_PARTY_NOTICES.md",
+      "sha256": "406effa2d395397813ed342713758b72ebed368ad0cb1e2d939a707a0e410b8f"
     },
     {
       "path": "plugins/agent-foundry/skills/game-feel-polish/agents/openai.yaml",
@@ -482,12 +510,8 @@
       "sha256": "261f5eec4d038b645d21d1577c203aa6e0d5d7120d724420eaf6775504322914"
     },
     {
-      "path": "plugins/agent-foundry/skills/game-feel-polish/SKILL.md",
-      "sha256": "790a6cdb0e5a99a6456ec54b7ca8823105b2112d1fac5fa5d2ebf2d0c7b0f757"
-    },
-    {
-      "path": "plugins/agent-foundry/skills/game-feel-polish/THIRD_PARTY_NOTICES.md",
-      "sha256": "406effa2d395397813ed342713758b72ebed368ad0cb1e2d939a707a0e410b8f"
+      "path": "plugins/agent-foundry/skills/game-studio-orchestration/SKILL.md",
+      "sha256": "7b6ac4fa8af23ccd7f73a65a30ce2f8277b91bbf57b859676baae15f6ecc8cf1"
     },
     {
       "path": "plugins/agent-foundry/skills/game-studio-orchestration/agents/openai.yaml",
@@ -496,6 +520,10 @@
     {
       "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/agent-write-contracts.md",
       "sha256": "abf9d0e528192a8f063c9c81c63167a38c7393fe8c7dfcf2a0286a0481f4aad8"
+    },
+    {
+      "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/agents-index.md",
+      "sha256": "c911bf54e4967a51dea011d3725925a546ac8d13071ac4c57f269e0e6fecf2c5"
     },
     {
       "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/agents/accessibility-specialist.md",
@@ -706,8 +734,8 @@
       "sha256": "6c5a77d4d893ac69b91c3b2a002e3db22369a0421ce0cc6423fce9120cf86021"
     },
     {
-      "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/agents-index.md",
-      "sha256": "c911bf54e4967a51dea011d3725925a546ac8d13071ac4c57f269e0e6fecf2c5"
+      "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/hooks-index.md",
+      "sha256": "35ac5f54fb54c3b62e0489b43875c9dfafdd24ca238c71db830207b57decab67"
     },
     {
       "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/hooks/detect-gaps.sh",
@@ -758,8 +786,8 @@
       "sha256": "61cccfb8eb217985f13b36680c4f8e633b38a697ea22363ce9ec10c4222b341e"
     },
     {
-      "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/hooks-index.md",
-      "sha256": "35ac5f54fb54c3b62e0489b43875c9dfafdd24ca238c71db830207b57decab67"
+      "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/rules-index.md",
+      "sha256": "5fd83c6ac94e60c7b3df22f90a2e83a4ef99c2cbc1bc60099a5502171b8ba5ca"
     },
     {
       "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/rules/ai-code.md",
@@ -818,8 +846,8 @@
       "sha256": "52d129990f92b1b90e15aa8e918d610e0851dbc1e404a668f62be6262a6510f6"
     },
     {
-      "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/rules-index.md",
-      "sha256": "5fd83c6ac94e60c7b3df22f90a2e83a4ef99c2cbc1bc60099a5502171b8ba5ca"
+      "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/templates-index.md",
+      "sha256": "db6ae330953d9950941f1011f49b87ba1a61d7bf44dcbfb564a8f20d09d619b4"
     },
     {
       "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/templates/accessibility-requirements.md",
@@ -982,36 +1010,32 @@
       "sha256": "f584ca8fd4b1b9cd76a9d82fe80fad1ea44e69cc5f6541ffbc7a86585007b951"
     },
     {
-      "path": "plugins/agent-foundry/skills/game-studio-orchestration/references/templates-index.md",
-      "sha256": "db6ae330953d9950941f1011f49b87ba1a61d7bf44dcbfb564a8f20d09d619b4"
-    },
-    {
-      "path": "plugins/agent-foundry/skills/game-studio-orchestration/SKILL.md",
-      "sha256": "7b6ac4fa8af23ccd7f73a65a30ce2f8277b91bbf57b859676baae15f6ecc8cf1"
+      "path": "plugins/agent-foundry/skills/gate-check/SKILL.md",
+      "sha256": "5165c1e9ed458fefdf949aa8b5681267ed0fcd34b56ca8449c7eba2944e29a4f"
     },
     {
       "path": "plugins/agent-foundry/skills/gate-check/references/claude-skill.md",
       "sha256": "2b81311f6f6a7e08e28c5ecedf829f64cb23e2988875bffa74ba72c866b504ca"
     },
     {
-      "path": "plugins/agent-foundry/skills/gate-check/SKILL.md",
-      "sha256": "5165c1e9ed458fefdf949aa8b5681267ed0fcd34b56ca8449c7eba2944e29a4f"
+      "path": "plugins/agent-foundry/skills/help/SKILL.md",
+      "sha256": "f96b21b125b07d6f105d6908d5c3e83810548c73812a9f084ac9af94955d8eec"
     },
     {
       "path": "plugins/agent-foundry/skills/help/references/claude-skill.md",
       "sha256": "c5311a64482b610a8a8f0d51c12b879e290cc09b5e8cf1efe7b8a2cd26fd1aa9"
     },
     {
-      "path": "plugins/agent-foundry/skills/help/SKILL.md",
-      "sha256": "f96b21b125b07d6f105d6908d5c3e83810548c73812a9f084ac9af94955d8eec"
+      "path": "plugins/agent-foundry/skills/hotfix/SKILL.md",
+      "sha256": "31717b65410cd7e1fe660190349cbbba8ef1080142ac3766402b13e3e26045ea"
     },
     {
       "path": "plugins/agent-foundry/skills/hotfix/references/claude-skill.md",
       "sha256": "4e92a265cca0046e5002c7a2a1f4ddef1c7c8cb5e0092d6366b4d0231685391f"
     },
     {
-      "path": "plugins/agent-foundry/skills/hotfix/SKILL.md",
-      "sha256": "31717b65410cd7e1fe660190349cbbba8ef1080142ac3766402b13e3e26045ea"
+      "path": "plugins/agent-foundry/skills/implement-task/SKILL.md",
+      "sha256": "a5ba070e91f26938155f2470c07fd4e695cdf241d529bdaa2a25b10d1fe35e26"
     },
     {
       "path": "plugins/agent-foundry/skills/implement-task/agents/openai.yaml",
@@ -1022,240 +1046,240 @@
       "sha256": "b0a582ea37973c320f7eb87f9cb57342df19f7458453b68ac35e85d72d25684f"
     },
     {
-      "path": "plugins/agent-foundry/skills/implement-task/SKILL.md",
-      "sha256": "a5ba070e91f26938155f2470c07fd4e695cdf241d529bdaa2a25b10d1fe35e26"
+      "path": "plugins/agent-foundry/skills/javascript-game-tools/SKILL.md",
+      "sha256": "aca9a2290c659501f3bef58b73ff0db35a4b1b3db79c09f1564866eb2915b23d"
     },
     {
       "path": "plugins/agent-foundry/skills/javascript-game-tools/references/javascript-patterns.md",
       "sha256": "73d76315ee4b813dc31c244c2d7e2c30aa0ec8ee4274e4270b86181ea0f784dc"
     },
     {
-      "path": "plugins/agent-foundry/skills/javascript-game-tools/SKILL.md",
-      "sha256": "aca9a2290c659501f3bef58b73ff0db35a4b1b3db79c09f1564866eb2915b23d"
+      "path": "plugins/agent-foundry/skills/launch-checklist/SKILL.md",
+      "sha256": "1464007cec47511eba243dd03ef895d164dc72608a01fe86a2ba944eb7c74cd0"
     },
     {
       "path": "plugins/agent-foundry/skills/launch-checklist/references/claude-skill.md",
       "sha256": "61466731cd08dcc0ec9bb2e8c22b1e5aeae6425154409c0f72ef622541714c59"
     },
     {
-      "path": "plugins/agent-foundry/skills/launch-checklist/SKILL.md",
-      "sha256": "1464007cec47511eba243dd03ef895d164dc72608a01fe86a2ba944eb7c74cd0"
+      "path": "plugins/agent-foundry/skills/localize/SKILL.md",
+      "sha256": "7b17450c59756c9ecf1230eadc1a821d1371c3cb8816c813e9b1e1a75aa64254"
     },
     {
       "path": "plugins/agent-foundry/skills/localize/references/claude-skill.md",
       "sha256": "9dffdcf20d05e49eaf47737831889718c48958d002ec8b91e5a71e3f77387677"
     },
     {
-      "path": "plugins/agent-foundry/skills/localize/SKILL.md",
-      "sha256": "7b17450c59756c9ecf1230eadc1a821d1371c3cb8816c813e9b1e1a75aa64254"
+      "path": "plugins/agent-foundry/skills/map-systems/SKILL.md",
+      "sha256": "257b38432eb7f9dca4224ec7fd185b8267836e5176ff8f529f50d52786f7e567"
     },
     {
       "path": "plugins/agent-foundry/skills/map-systems/references/claude-skill.md",
       "sha256": "8452f05a587fb69d8b23fea8de3714f079fa5c665ed986c39756c71da0df4380"
     },
     {
-      "path": "plugins/agent-foundry/skills/map-systems/SKILL.md",
-      "sha256": "257b38432eb7f9dca4224ec7fd185b8267836e5176ff8f529f50d52786f7e567"
+      "path": "plugins/agent-foundry/skills/milestone-review/SKILL.md",
+      "sha256": "3f1f0e79d25fa2acb854043bf6e3dbf8708e4d43bbbc5815263f5999b31f7427"
     },
     {
       "path": "plugins/agent-foundry/skills/milestone-review/references/claude-skill.md",
       "sha256": "a108b76848a07c4f8e6f55a7c163edaa96d5912070b6a875608214b1cd3c2fc1"
     },
     {
-      "path": "plugins/agent-foundry/skills/milestone-review/SKILL.md",
-      "sha256": "3f1f0e79d25fa2acb854043bf6e3dbf8708e4d43bbbc5815263f5999b31f7427"
+      "path": "plugins/agent-foundry/skills/onboard/SKILL.md",
+      "sha256": "fc6c409ef66008048fe2e4c02ca6e8683366e0a94418fdaf2111c9ab532084c1"
     },
     {
       "path": "plugins/agent-foundry/skills/onboard/references/claude-skill.md",
       "sha256": "c19f4814c45a56376435a22ef10cb1223d379deba814ca13e5e2a25545c7722d"
     },
     {
-      "path": "plugins/agent-foundry/skills/onboard/SKILL.md",
-      "sha256": "fc6c409ef66008048fe2e4c02ca6e8683366e0a94418fdaf2111c9ab532084c1"
+      "path": "plugins/agent-foundry/skills/patch-notes/SKILL.md",
+      "sha256": "a0745a941c3db36923f113594b24e63fec08a851e830f25f2600e4a26e24e660"
     },
     {
       "path": "plugins/agent-foundry/skills/patch-notes/references/claude-skill.md",
       "sha256": "b537d59a53380db07ebc62bbff4e30e9a76c73a6b92f225dcb69e9fdabd34045"
     },
     {
-      "path": "plugins/agent-foundry/skills/patch-notes/SKILL.md",
-      "sha256": "a0745a941c3db36923f113594b24e63fec08a851e830f25f2600e4a26e24e660"
+      "path": "plugins/agent-foundry/skills/perf-profile/SKILL.md",
+      "sha256": "1556c1e9405a029de081ae638d70087f996758450717ca00d8f1cc20271ed02a"
     },
     {
       "path": "plugins/agent-foundry/skills/perf-profile/references/claude-skill.md",
       "sha256": "111d88f821d3ae719e67815cd1873ec1a01dd2efad7bcdcc3070c65714170e19"
     },
     {
-      "path": "plugins/agent-foundry/skills/perf-profile/SKILL.md",
-      "sha256": "1556c1e9405a029de081ae638d70087f996758450717ca00d8f1cc20271ed02a"
+      "path": "plugins/agent-foundry/skills/playtest-report/SKILL.md",
+      "sha256": "ec2eca690f9dd88cddd199099d7d8dfcb78c3acc8b81726accb8f2eb35599efc"
     },
     {
       "path": "plugins/agent-foundry/skills/playtest-report/references/claude-skill.md",
       "sha256": "32b7a0226bc8d6c982bb5b944da7910a5bc963cd5039cbe86d61a9ec58e6ca62"
     },
     {
-      "path": "plugins/agent-foundry/skills/playtest-report/SKILL.md",
-      "sha256": "ec2eca690f9dd88cddd199099d7d8dfcb78c3acc8b81726accb8f2eb35599efc"
+      "path": "plugins/agent-foundry/skills/project-stage-detect/SKILL.md",
+      "sha256": "cacad75bce6e83e9eb6fa106eca3925c7ae4a1f7fb8384c9bb01ef20046110a5"
     },
     {
       "path": "plugins/agent-foundry/skills/project-stage-detect/references/claude-skill.md",
       "sha256": "564ecf8b78877b0b7ef8c577c16779cfc82757b9347679968d0e796d7bf5ac86"
     },
     {
-      "path": "plugins/agent-foundry/skills/project-stage-detect/SKILL.md",
-      "sha256": "cacad75bce6e83e9eb6fa106eca3925c7ae4a1f7fb8384c9bb01ef20046110a5"
+      "path": "plugins/agent-foundry/skills/propagate-design-change/SKILL.md",
+      "sha256": "6a6ad709bc7536f3db89bd456543141a05af524de5627c3d78f53d49948b5d0c"
     },
     {
       "path": "plugins/agent-foundry/skills/propagate-design-change/references/claude-skill.md",
       "sha256": "c1903310ea7fa86a448bc1f636224ef13a90e9cb1f11909b1678ba65b5873f3c"
     },
     {
-      "path": "plugins/agent-foundry/skills/propagate-design-change/SKILL.md",
-      "sha256": "6a6ad709bc7536f3db89bd456543141a05af524de5627c3d78f53d49948b5d0c"
+      "path": "plugins/agent-foundry/skills/prototype/SKILL.md",
+      "sha256": "822f358fa747b7d0dda7847fa1e598c136bacf12bd1d04d74abccc82fbd44ee0"
     },
     {
       "path": "plugins/agent-foundry/skills/prototype/references/claude-skill.md",
       "sha256": "4af29465791788f7e4300fa164bb78ac845ba0a03431e499c82b1864f4c5f5c8"
     },
     {
-      "path": "plugins/agent-foundry/skills/prototype/SKILL.md",
-      "sha256": "822f358fa747b7d0dda7847fa1e598c136bacf12bd1d04d74abccc82fbd44ee0"
+      "path": "plugins/agent-foundry/skills/qa-plan/SKILL.md",
+      "sha256": "32a101818f045e40ad5fc4c1cd5cbc5464e6a88cf450d0e86117d1198393d0b2"
     },
     {
       "path": "plugins/agent-foundry/skills/qa-plan/references/claude-skill.md",
       "sha256": "2505398dac12b8fbf0fc07cf25d71795f52b6d7778faf14c28420a2edfd99381"
     },
     {
-      "path": "plugins/agent-foundry/skills/qa-plan/SKILL.md",
-      "sha256": "32a101818f045e40ad5fc4c1cd5cbc5464e6a88cf450d0e86117d1198393d0b2"
+      "path": "plugins/agent-foundry/skills/quick-design/SKILL.md",
+      "sha256": "4f75795932a242bf923a5ab97ac0311bd60a75739aed21dbdfd67414049e4f47"
     },
     {
       "path": "plugins/agent-foundry/skills/quick-design/references/claude-skill.md",
       "sha256": "4fe9d0a25fece25b2515b1da219fecf32550e3ff63c54a6e2d5b9beb55d05f16"
     },
     {
-      "path": "plugins/agent-foundry/skills/quick-design/SKILL.md",
-      "sha256": "4f75795932a242bf923a5ab97ac0311bd60a75739aed21dbdfd67414049e4f47"
+      "path": "plugins/agent-foundry/skills/regression-suite/SKILL.md",
+      "sha256": "b753e16cf98efd2264415d5542977c42e507d522fa90bd0d648aa2f2a7c9e4c1"
     },
     {
       "path": "plugins/agent-foundry/skills/regression-suite/references/claude-skill.md",
       "sha256": "196fdf19e5d4a05ae03f6b6d2586961f7083b7137691b93aa740fc8b4c49fd62"
     },
     {
-      "path": "plugins/agent-foundry/skills/regression-suite/SKILL.md",
-      "sha256": "b753e16cf98efd2264415d5542977c42e507d522fa90bd0d648aa2f2a7c9e4c1"
+      "path": "plugins/agent-foundry/skills/release-checklist/SKILL.md",
+      "sha256": "e6cb2c4e83056f1b8ab72d4a7f041869e62ac1c53fcd5dec62672beeefebbd46"
     },
     {
       "path": "plugins/agent-foundry/skills/release-checklist/references/claude-skill.md",
       "sha256": "c4e80c32d15f12c2865c4a42530edeb7e19e61fdc02c176c4c140bc793bfa320"
     },
     {
-      "path": "plugins/agent-foundry/skills/release-checklist/SKILL.md",
-      "sha256": "e6cb2c4e83056f1b8ab72d4a7f041869e62ac1c53fcd5dec62672beeefebbd46"
+      "path": "plugins/agent-foundry/skills/retrospective/SKILL.md",
+      "sha256": "14158376c0c4da6ad0bbc3d6d565aa44c3c2d4d9fb77ccaf5f8939277adf6891"
     },
     {
       "path": "plugins/agent-foundry/skills/retrospective/references/claude-skill.md",
       "sha256": "3678739e0a39b7367f5c751904b249b20c0b3dd5242c0a60ff16e056c8bcc2ba"
     },
     {
-      "path": "plugins/agent-foundry/skills/retrospective/SKILL.md",
-      "sha256": "14158376c0c4da6ad0bbc3d6d565aa44c3c2d4d9fb77ccaf5f8939277adf6891"
+      "path": "plugins/agent-foundry/skills/reverse-document/SKILL.md",
+      "sha256": "de3f528d5a42acbcdebe3ea95392c6d7ba6e7f47f6c5ff8b7eaafcc8055514ed"
     },
     {
       "path": "plugins/agent-foundry/skills/reverse-document/references/claude-skill.md",
       "sha256": "02efcda6cf5e25e35f0e24e3ff0e9499a2672284e356d3fe18bc111c059ae8d4"
     },
     {
-      "path": "plugins/agent-foundry/skills/reverse-document/SKILL.md",
-      "sha256": "de3f528d5a42acbcdebe3ea95392c6d7ba6e7f47f6c5ff8b7eaafcc8055514ed"
+      "path": "plugins/agent-foundry/skills/review-all-gdds/SKILL.md",
+      "sha256": "fad6b6fda2c0b93595c862ab86fcc9366b98c02a34bfcc1ff263763bbff5c27c"
     },
     {
       "path": "plugins/agent-foundry/skills/review-all-gdds/references/claude-skill.md",
       "sha256": "a390e886e8ef5b4e65ff390d3339a6d42478120642c9af592b41b9f149544231"
     },
     {
-      "path": "plugins/agent-foundry/skills/review-all-gdds/SKILL.md",
-      "sha256": "fad6b6fda2c0b93595c862ab86fcc9366b98c02a34bfcc1ff263763bbff5c27c"
+      "path": "plugins/agent-foundry/skills/scope-check/SKILL.md",
+      "sha256": "4cea48bc8cb4b196d313a9fca2eea075f0f70129c07cac901a9db46a1724f6cf"
     },
     {
       "path": "plugins/agent-foundry/skills/scope-check/references/claude-skill.md",
       "sha256": "2610d9c725825f0d0c108ea611861a7773bcccf070c4be92a025074e78684d2f"
     },
     {
-      "path": "plugins/agent-foundry/skills/scope-check/SKILL.md",
-      "sha256": "4cea48bc8cb4b196d313a9fca2eea075f0f70129c07cac901a9db46a1724f6cf"
+      "path": "plugins/agent-foundry/skills/security-audit/SKILL.md",
+      "sha256": "cd4f9239715f8d66c4692fa3e0f33c80112664f174828800a5fae8a5b85389b7"
     },
     {
       "path": "plugins/agent-foundry/skills/security-audit/references/claude-skill.md",
       "sha256": "fbbc2ca3b0a66e4986007765a52c6de0dd9ff197fde7755fd82631d02a9b3679"
     },
     {
-      "path": "plugins/agent-foundry/skills/security-audit/SKILL.md",
-      "sha256": "cd4f9239715f8d66c4692fa3e0f33c80112664f174828800a5fae8a5b85389b7"
+      "path": "plugins/agent-foundry/skills/setup-engine/SKILL.md",
+      "sha256": "5618797bc95e0e64e1c0897f75d2599705e636cdca9a05c41453469ba1cc2482"
     },
     {
       "path": "plugins/agent-foundry/skills/setup-engine/references/claude-skill.md",
       "sha256": "47d86e2f461b98a9f10aeef50492d27381bad616f4e6fa8c33057c56cd9ce393"
     },
     {
-      "path": "plugins/agent-foundry/skills/setup-engine/SKILL.md",
-      "sha256": "5618797bc95e0e64e1c0897f75d2599705e636cdca9a05c41453469ba1cc2482"
+      "path": "plugins/agent-foundry/skills/skill-improve/SKILL.md",
+      "sha256": "acccc91e544041540e3e7766a86be4b802ebfa6ac8430e78284a30ca2ef4cf73"
     },
     {
       "path": "plugins/agent-foundry/skills/skill-improve/references/claude-skill.md",
       "sha256": "fc23ac552f7ee2d7b91f134b7a24bf6a7ef78256ac452f5755d2c69a69ad0d32"
     },
     {
-      "path": "plugins/agent-foundry/skills/skill-improve/SKILL.md",
-      "sha256": "acccc91e544041540e3e7766a86be4b802ebfa6ac8430e78284a30ca2ef4cf73"
+      "path": "plugins/agent-foundry/skills/skill-test/SKILL.md",
+      "sha256": "7fc781d25857a110c6d2068bc0f3706f7208b5a495a0f9b6ad2a618dd248bfd9"
     },
     {
       "path": "plugins/agent-foundry/skills/skill-test/references/claude-skill.md",
       "sha256": "86754de84c8071156cd2d6f53cbdac9b5bdadd3b1aa7197bd12434f1588f4a04"
     },
     {
-      "path": "plugins/agent-foundry/skills/skill-test/SKILL.md",
-      "sha256": "7fc781d25857a110c6d2068bc0f3706f7208b5a495a0f9b6ad2a618dd248bfd9"
+      "path": "plugins/agent-foundry/skills/smoke-check/SKILL.md",
+      "sha256": "63d1d04f2338723268e8e7439b88439c4ee6b22df33a67c25c5f5c3c8e73b80b"
     },
     {
       "path": "plugins/agent-foundry/skills/smoke-check/references/claude-skill.md",
       "sha256": "3350afb761078e100d6ecc8e0a0adab7ec821c3601309c3c5cf37c2b9aceaf57"
     },
     {
-      "path": "plugins/agent-foundry/skills/smoke-check/SKILL.md",
-      "sha256": "63d1d04f2338723268e8e7439b88439c4ee6b22df33a67c25c5f5c3c8e73b80b"
+      "path": "plugins/agent-foundry/skills/soak-test/SKILL.md",
+      "sha256": "9deaf8ee2372ec82a44b7c33897b8b31f7ab98e6e26e0b725657b41e373d1aa2"
     },
     {
       "path": "plugins/agent-foundry/skills/soak-test/references/claude-skill.md",
       "sha256": "3e084ac5a064c131baf082231de8ec9f1dcddfa516f0d515e4302f8a5b42a715"
     },
     {
-      "path": "plugins/agent-foundry/skills/soak-test/SKILL.md",
-      "sha256": "9deaf8ee2372ec82a44b7c33897b8b31f7ab98e6e26e0b725657b41e373d1aa2"
+      "path": "plugins/agent-foundry/skills/sprint-plan/SKILL.md",
+      "sha256": "9972730cf1f830871f831f45a2767fedb208334d61f4b222b187a4908424bfe8"
     },
     {
       "path": "plugins/agent-foundry/skills/sprint-plan/references/claude-skill.md",
       "sha256": "5a4025a7d716c6b8245f79b873bbcdc43b0933f323c15875d54b178ab7774b64"
     },
     {
-      "path": "plugins/agent-foundry/skills/sprint-plan/SKILL.md",
-      "sha256": "9972730cf1f830871f831f45a2767fedb208334d61f4b222b187a4908424bfe8"
+      "path": "plugins/agent-foundry/skills/sprint-status/SKILL.md",
+      "sha256": "05b35e2c305178efccd1396e07129753cb25d7c1bad8547d070c2c7427042718"
     },
     {
       "path": "plugins/agent-foundry/skills/sprint-status/references/claude-skill.md",
       "sha256": "793323dc6ac9e2b10b345c0c698b90c0c6c786911702512de1bcd6eba05c77eb"
     },
     {
-      "path": "plugins/agent-foundry/skills/sprint-status/SKILL.md",
-      "sha256": "05b35e2c305178efccd1396e07129753cb25d7c1bad8547d070c2c7427042718"
+      "path": "plugins/agent-foundry/skills/start/SKILL.md",
+      "sha256": "2e3add190f90bfb45c862691640d4c4087afcc1e6f7f062ed731b98980b64095"
     },
     {
       "path": "plugins/agent-foundry/skills/start/references/claude-skill.md",
       "sha256": "ecbf5f0b9a676a497c81e55c2ab69f1dbf08c890e4231140cc2a6c489137dd5c"
     },
     {
-      "path": "plugins/agent-foundry/skills/start/SKILL.md",
-      "sha256": "2e3add190f90bfb45c862691640d4c4087afcc1e6f7f062ed731b98980b64095"
+      "path": "plugins/agent-foundry/skills/steam-store-launch/SKILL.md",
+      "sha256": "0a9a686e7193860d6ca58cbf2c26f42cb501b4d35617eb56e150050d068b78ea"
     },
     {
       "path": "plugins/agent-foundry/skills/steam-store-launch/agents/openai.yaml",
@@ -1278,32 +1302,32 @@
       "sha256": "be07d857554859c81cdc815a3887779dc8be41085eb98b35f83b8e37c2a634f9"
     },
     {
-      "path": "plugins/agent-foundry/skills/steam-store-launch/SKILL.md",
-      "sha256": "0a9a686e7193860d6ca58cbf2c26f42cb501b4d35617eb56e150050d068b78ea"
+      "path": "plugins/agent-foundry/skills/story-done/SKILL.md",
+      "sha256": "0577441f2a2d6c645f92232a9142aee747a65f214b973f1fae9b48e4a5538d81"
     },
     {
       "path": "plugins/agent-foundry/skills/story-done/references/claude-skill.md",
       "sha256": "c9bc03c459d720668a0e3b168604b774acfd4cf777ad5fd1b6fc38fa165352e8"
     },
     {
-      "path": "plugins/agent-foundry/skills/story-done/SKILL.md",
-      "sha256": "0577441f2a2d6c645f92232a9142aee747a65f214b973f1fae9b48e4a5538d81"
+      "path": "plugins/agent-foundry/skills/story-readiness/SKILL.md",
+      "sha256": "ba1fca6ad6bf4e302397a4625adaafb844897588d86db928a36dc168b284b5c9"
     },
     {
       "path": "plugins/agent-foundry/skills/story-readiness/references/claude-skill.md",
       "sha256": "1a4c4ac8556eecdcf1018a2ce48e760d13744f0de2db46cbc16025f5e69fbf9a"
     },
     {
-      "path": "plugins/agent-foundry/skills/story-readiness/SKILL.md",
-      "sha256": "ba1fca6ad6bf4e302397a4625adaafb844897588d86db928a36dc168b284b5c9"
+      "path": "plugins/agent-foundry/skills/task-bug/SKILL.md",
+      "sha256": "4a9d367a5a5dd7268266066999e3307ec369d70e6c3359b7037f458f4178c65b"
     },
     {
       "path": "plugins/agent-foundry/skills/task-bug/agents/openai.yaml",
       "sha256": "19e6c70e9ef8dc9d7de33aaa67f7d85ef3333e11b53f30557b8319a7307ed71e"
     },
     {
-      "path": "plugins/agent-foundry/skills/task-bug/SKILL.md",
-      "sha256": "4a9d367a5a5dd7268266066999e3307ec369d70e6c3359b7037f458f4178c65b"
+      "path": "plugins/agent-foundry/skills/task-cycle/SKILL.md",
+      "sha256": "335062465e2f4f36b01c96e5a79c1632c3942b1ca46fcc0764d4facf60a7d74c"
     },
     {
       "path": "plugins/agent-foundry/skills/task-cycle/agents/openai.yaml",
@@ -1322,136 +1346,136 @@
       "sha256": "81858fd4547e4c3d1b4aa95da9b6a1a667c01bb35af9c076132d58e217721491"
     },
     {
-      "path": "plugins/agent-foundry/skills/task-cycle/SKILL.md",
-      "sha256": "335062465e2f4f36b01c96e5a79c1632c3942b1ca46fcc0764d4facf60a7d74c"
+      "path": "plugins/agent-foundry/skills/task-done/SKILL.md",
+      "sha256": "e21d122efdbddb3a0a152b7e66f0874340588ebc06c74cd1b9047c3a464cdac8"
     },
     {
       "path": "plugins/agent-foundry/skills/task-done/agents/openai.yaml",
       "sha256": "a73d5bec108841204d304a249fda6910d56fbab53e9e2a690ab9efcf8648a152"
     },
     {
-      "path": "plugins/agent-foundry/skills/task-done/SKILL.md",
-      "sha256": "e21d122efdbddb3a0a152b7e66f0874340588ebc06c74cd1b9047c3a464cdac8"
+      "path": "plugins/agent-foundry/skills/task-status/SKILL.md",
+      "sha256": "3cd59f2064d573099f7aeae92146b0e7b3d2fe43fe2f8106b7e2c6cbe77c31b4"
     },
     {
       "path": "plugins/agent-foundry/skills/task-status/agents/openai.yaml",
       "sha256": "edf0b49a271a151c00f2f61997526d666303c77fbd2bed4a12c52a1520cf2115"
     },
     {
-      "path": "plugins/agent-foundry/skills/task-status/SKILL.md",
-      "sha256": "3cd59f2064d573099f7aeae92146b0e7b3d2fe43fe2f8106b7e2c6cbe77c31b4"
+      "path": "plugins/agent-foundry/skills/team-audio/SKILL.md",
+      "sha256": "d82a45a9f1f2319abfdede98b0f20e01b32a6d18367cf7153f6be2c70168fbfd"
     },
     {
       "path": "plugins/agent-foundry/skills/team-audio/references/claude-skill.md",
       "sha256": "6e6a04e8ea3074bd33ec863a180907a75c44db31f184ebf11b973e2713c0f871"
     },
     {
-      "path": "plugins/agent-foundry/skills/team-audio/SKILL.md",
-      "sha256": "d82a45a9f1f2319abfdede98b0f20e01b32a6d18367cf7153f6be2c70168fbfd"
+      "path": "plugins/agent-foundry/skills/team-combat/SKILL.md",
+      "sha256": "072b1deb0a4b571a06bc530c4443283d80a8629219d7065060bdefa7f9e8fe39"
     },
     {
       "path": "plugins/agent-foundry/skills/team-combat/references/claude-skill.md",
       "sha256": "cb5d8d38bba359acbbabed19b868a6aa8e7fc097b87ddb33e3888332919dcd0a"
     },
     {
-      "path": "plugins/agent-foundry/skills/team-combat/SKILL.md",
-      "sha256": "072b1deb0a4b571a06bc530c4443283d80a8629219d7065060bdefa7f9e8fe39"
+      "path": "plugins/agent-foundry/skills/team-level/SKILL.md",
+      "sha256": "2c56d425ba0a706d952b8162f6bdd9f8abec79e73e198d146e9484b7acc2b1f4"
     },
     {
       "path": "plugins/agent-foundry/skills/team-level/references/claude-skill.md",
       "sha256": "24dba9c68e3ada3321341def0316f200aac5cf408950bc0a5f4f7b9d1a6493bb"
     },
     {
-      "path": "plugins/agent-foundry/skills/team-level/SKILL.md",
-      "sha256": "2c56d425ba0a706d952b8162f6bdd9f8abec79e73e198d146e9484b7acc2b1f4"
+      "path": "plugins/agent-foundry/skills/team-live-ops/SKILL.md",
+      "sha256": "01ee6ea707f65e318562d7105a8c015993a28e55a9f8243f7b41a3f765c62fa2"
     },
     {
       "path": "plugins/agent-foundry/skills/team-live-ops/references/claude-skill.md",
       "sha256": "f77c3acc8f99dc440797eaa504192518d95cca639c91352874283860f43e804c"
     },
     {
-      "path": "plugins/agent-foundry/skills/team-live-ops/SKILL.md",
-      "sha256": "01ee6ea707f65e318562d7105a8c015993a28e55a9f8243f7b41a3f765c62fa2"
+      "path": "plugins/agent-foundry/skills/team-narrative/SKILL.md",
+      "sha256": "8f1fa6d0eb894db08365e3498a1d0a393b9b863b293024b53ac77006492ec048"
     },
     {
       "path": "plugins/agent-foundry/skills/team-narrative/references/claude-skill.md",
       "sha256": "e400c0a782e35fc5d3450d785703e15f7e41d8f514a093e2cd5113ca397f84b1"
     },
     {
-      "path": "plugins/agent-foundry/skills/team-narrative/SKILL.md",
-      "sha256": "8f1fa6d0eb894db08365e3498a1d0a393b9b863b293024b53ac77006492ec048"
+      "path": "plugins/agent-foundry/skills/team-polish/SKILL.md",
+      "sha256": "15463fc6ff352e23aa8d21d44bb9efc83d47ae35cd3b628e1dcdc85ab9c7f555"
     },
     {
       "path": "plugins/agent-foundry/skills/team-polish/references/claude-skill.md",
       "sha256": "5cad6585f684b86c5a3a0e998e9621635969731e64ab275c707b98c25cb5abed"
     },
     {
-      "path": "plugins/agent-foundry/skills/team-polish/SKILL.md",
-      "sha256": "15463fc6ff352e23aa8d21d44bb9efc83d47ae35cd3b628e1dcdc85ab9c7f555"
+      "path": "plugins/agent-foundry/skills/team-qa/SKILL.md",
+      "sha256": "6d2fe9e9c81a15723b318720f9000e2464ad429805d2228da4676fb6ca73fed1"
     },
     {
       "path": "plugins/agent-foundry/skills/team-qa/references/claude-skill.md",
       "sha256": "abeaa0f6f8cb09a80725903e433913bbefcb2f7a8daad17f4ba2a249ed8d8441"
     },
     {
-      "path": "plugins/agent-foundry/skills/team-qa/SKILL.md",
-      "sha256": "6d2fe9e9c81a15723b318720f9000e2464ad429805d2228da4676fb6ca73fed1"
+      "path": "plugins/agent-foundry/skills/team-release/SKILL.md",
+      "sha256": "f3c254f5b2377533aa9c03ddeff0a4476f2cf03b7791b4d831a3aa91fdc6bb93"
     },
     {
       "path": "plugins/agent-foundry/skills/team-release/references/claude-skill.md",
       "sha256": "61a3e7a9a068e13c56f50b7d1ce8623c2f3bec66f349117ecc4eb143599a6337"
     },
     {
-      "path": "plugins/agent-foundry/skills/team-release/SKILL.md",
-      "sha256": "f3c254f5b2377533aa9c03ddeff0a4476f2cf03b7791b4d831a3aa91fdc6bb93"
+      "path": "plugins/agent-foundry/skills/team-ui/SKILL.md",
+      "sha256": "055899ebb6fcaf0a4391c7cb753b9dc24062f52e092da4dc8409e6bb2e6e3c75"
     },
     {
       "path": "plugins/agent-foundry/skills/team-ui/references/claude-skill.md",
       "sha256": "cc5f40f425490ec6c1b9a66522059ce23c90bd273d8f3c877a198eb8704eae65"
     },
     {
-      "path": "plugins/agent-foundry/skills/team-ui/SKILL.md",
-      "sha256": "055899ebb6fcaf0a4391c7cb753b9dc24062f52e092da4dc8409e6bb2e6e3c75"
+      "path": "plugins/agent-foundry/skills/tech-debt/SKILL.md",
+      "sha256": "26c83a9e8f4907e44811be1336cdccd8aa1be8bee412f465e646998fc7e92cdd"
     },
     {
       "path": "plugins/agent-foundry/skills/tech-debt/references/claude-skill.md",
       "sha256": "c62273297beddcdec27a4f31f922aff5fdaa47ea26437164a2d17b90eecb57fc"
     },
     {
-      "path": "plugins/agent-foundry/skills/tech-debt/SKILL.md",
-      "sha256": "26c83a9e8f4907e44811be1336cdccd8aa1be8bee412f465e646998fc7e92cdd"
+      "path": "plugins/agent-foundry/skills/test-evidence-review/SKILL.md",
+      "sha256": "482f4af6a8b6c3752c879da5c16438e2bfb6f3fe24c0562fcb41e105ee5aca36"
     },
     {
       "path": "plugins/agent-foundry/skills/test-evidence-review/references/claude-skill.md",
       "sha256": "0288ab3d5c7b8a29049e4cabc41f0efcbb5a88802d522e01f9280f0fafc54779"
     },
     {
-      "path": "plugins/agent-foundry/skills/test-evidence-review/SKILL.md",
-      "sha256": "482f4af6a8b6c3752c879da5c16438e2bfb6f3fe24c0562fcb41e105ee5aca36"
+      "path": "plugins/agent-foundry/skills/test-flakiness/SKILL.md",
+      "sha256": "d787da0b6525fc45f3938d42e8bd67b260914b31850b5e67191fbab6d7030d92"
     },
     {
       "path": "plugins/agent-foundry/skills/test-flakiness/references/claude-skill.md",
       "sha256": "415d9e89bcd68cd3ce22a09f4e39cbf78748cdfb38998a2b859b706ba01de842"
     },
     {
-      "path": "plugins/agent-foundry/skills/test-flakiness/SKILL.md",
-      "sha256": "d787da0b6525fc45f3938d42e8bd67b260914b31850b5e67191fbab6d7030d92"
+      "path": "plugins/agent-foundry/skills/test-helpers/SKILL.md",
+      "sha256": "1c1ea2b45409f167f215eb8e3ece8b23d0145fe6578f6090887194c72878fa28"
     },
     {
       "path": "plugins/agent-foundry/skills/test-helpers/references/claude-skill.md",
       "sha256": "0e6916785a868aa7b4362795ef99e30c0691cd6a13d4d606d8c7ec7a50fa8553"
     },
     {
-      "path": "plugins/agent-foundry/skills/test-helpers/SKILL.md",
-      "sha256": "1c1ea2b45409f167f215eb8e3ece8b23d0145fe6578f6090887194c72878fa28"
+      "path": "plugins/agent-foundry/skills/test-setup/SKILL.md",
+      "sha256": "3c6d302064e9bb9341039c922edb6e8d2fa7e9e0e6fc89d4e30c0d1f2bcc9acd"
     },
     {
       "path": "plugins/agent-foundry/skills/test-setup/references/claude-skill.md",
       "sha256": "77880621fc449cc4c7d7e694cbe73ea2fc09c852f5a1198ee93380d3c93572ea"
     },
     {
-      "path": "plugins/agent-foundry/skills/test-setup/SKILL.md",
-      "sha256": "3c6d302064e9bb9341039c922edb6e8d2fa7e9e0e6fc89d4e30c0d1f2bcc9acd"
+      "path": "plugins/agent-foundry/skills/unity-agentic-workflow/SKILL.md",
+      "sha256": "a70b80b948c1342effd093eb71888ad75a916c575613a3a25e302dc270208be0"
     },
     {
       "path": "plugins/agent-foundry/skills/unity-agentic-workflow/agents/openai.yaml",
@@ -1474,12 +1498,16 @@
       "sha256": "2a1fcfdaac114126b277f5b22b601542837876d700d90bf20c7b5b4c269e647a"
     },
     {
-      "path": "plugins/agent-foundry/skills/unity-agentic-workflow/SKILL.md",
-      "sha256": "a70b80b948c1342effd093eb71888ad75a916c575613a3a25e302dc270208be0"
-    },
-    {
       "path": "plugins/agent-foundry/skills/unity-cli/CHANGELOG.md",
       "sha256": "7ef4d78bcf2e26bba1c09fcf63a0fd8f35b7181e3023d7b33cd02c1c0c320c41"
+    },
+    {
+      "path": "plugins/agent-foundry/skills/unity-cli/SECURITY.md",
+      "sha256": "0ef0de29a2a3fca08ef4b45b7004b86e46cbaa8a9969bf037121acd266b058f9"
+    },
+    {
+      "path": "plugins/agent-foundry/skills/unity-cli/SKILL.md",
+      "sha256": "932c89ad93bf291b21e25e2f8c1cb28853c947e30c15bb8bd597d775e6d87eb0"
     },
     {
       "path": "plugins/agent-foundry/skills/unity-cli/references/auth-license-cloud.md",
@@ -1550,12 +1578,8 @@
       "sha256": "7d4122c3be79ef746055d1528bc31aeeea35a37d1722d351ccae89332da0d991"
     },
     {
-      "path": "plugins/agent-foundry/skills/unity-cli/SECURITY.md",
-      "sha256": "0ef0de29a2a3fca08ef4b45b7004b86e46cbaa8a9969bf037121acd266b058f9"
-    },
-    {
-      "path": "plugins/agent-foundry/skills/unity-cli/SKILL.md",
-      "sha256": "932c89ad93bf291b21e25e2f8c1cb28853c947e30c15bb8bd597d775e6d87eb0"
+      "path": "plugins/agent-foundry/skills/unity-game-dev/SKILL.md",
+      "sha256": "b4a839f5c4c4a8bf171ae91e2d8edccd69360fe75d94b7d641cf5516934ec812"
     },
     {
       "path": "plugins/agent-foundry/skills/unity-game-dev/references/cysharp-packages.md",
@@ -1586,8 +1610,8 @@
       "sha256": "52a53aa6578535ccc99daaf67597d29e0c3a710fe2e4a28da5bc3e4353e63258"
     },
     {
-      "path": "plugins/agent-foundry/skills/unity-game-dev/SKILL.md",
-      "sha256": "b4a839f5c4c4a8bf171ae91e2d8edccd69360fe75d94b7d641cf5516934ec812"
+      "path": "plugins/agent-foundry/skills/unity-grid-drag-puzzle/SKILL.md",
+      "sha256": "91b79ad5d8afc3b711d266a1250acc7fe9cc284942c023608b0a275cf5ff2043"
     },
     {
       "path": "plugins/agent-foundry/skills/unity-grid-drag-puzzle/agents/openai.yaml",
@@ -1598,8 +1622,8 @@
       "sha256": "5efb261be1b82cf88e895d279af3c031e0dab20bc0a6a8899c2810782ae72952"
     },
     {
-      "path": "plugins/agent-foundry/skills/unity-grid-drag-puzzle/SKILL.md",
-      "sha256": "91b79ad5d8afc3b711d266a1250acc7fe9cc284942c023608b0a275cf5ff2043"
+      "path": "plugins/agent-foundry/skills/unity-grid-level-editor/SKILL.md",
+      "sha256": "9c42c47722e911c4582a84a67484ee02d84b628262228ec90be44e04203c9e47"
     },
     {
       "path": "plugins/agent-foundry/skills/unity-grid-level-editor/agents/openai.yaml",
@@ -1610,8 +1634,8 @@
       "sha256": "ade459ba3f63c89d7ac2103abd04b99f46b0fb829ff6828083a1a8f9256e17dd"
     },
     {
-      "path": "plugins/agent-foundry/skills/unity-grid-level-editor/SKILL.md",
-      "sha256": "9c42c47722e911c4582a84a67484ee02d84b628262228ec90be44e04203c9e47"
+      "path": "plugins/agent-foundry/skills/unity-grid-puzzle-effects/SKILL.md",
+      "sha256": "9c100a928f87b980f48b1cf3772c7f8d4903ade71db949b3c1e760b0dabcf65d"
     },
     {
       "path": "plugins/agent-foundry/skills/unity-grid-puzzle-effects/agents/openai.yaml",
@@ -1622,8 +1646,8 @@
       "sha256": "516fec23324ec03399575802c243b8570c7ed2b1c4293c5850ddbc8e37b62a29"
     },
     {
-      "path": "plugins/agent-foundry/skills/unity-grid-puzzle-effects/SKILL.md",
-      "sha256": "9c100a928f87b980f48b1cf3772c7f8d4903ade71db949b3c1e760b0dabcf65d"
+      "path": "plugins/agent-foundry/skills/unity-life-economy/SKILL.md",
+      "sha256": "b3693218b178038295aee83ef4c9c155ef9e06713e917432af6ffb677aeef026"
     },
     {
       "path": "plugins/agent-foundry/skills/unity-life-economy/agents/openai.yaml",
@@ -1634,16 +1658,16 @@
       "sha256": "3721f9b09fb067c4edc87a5d0a1044fa8ce47f03c1456ffdc31532092b14dbf8"
     },
     {
-      "path": "plugins/agent-foundry/skills/unity-life-economy/SKILL.md",
-      "sha256": "b3693218b178038295aee83ef4c9c155ef9e06713e917432af6ffb677aeef026"
+      "path": "plugins/agent-foundry/skills/unity-optimization/SKILL.md",
+      "sha256": "edcdc4f7cc628adf8e33f45a91096fb86738786ed06b3fe99814583560407731"
     },
     {
       "path": "plugins/agent-foundry/skills/unity-optimization/agents/openai.yaml",
       "sha256": "e3b11b87493f82968b960960f698da34f130ee220d90806ee20cc40107024ddc"
     },
     {
-      "path": "plugins/agent-foundry/skills/unity-optimization/SKILL.md",
-      "sha256": "edcdc4f7cc628adf8e33f45a91096fb86738786ed06b3fe99814583560407731"
+      "path": "plugins/agent-foundry/skills/unity-transactional-boosters/SKILL.md",
+      "sha256": "df13ea31d527a39815e64bc50e9358c231326642ac07df631057ca121a764f7c"
     },
     {
       "path": "plugins/agent-foundry/skills/unity-transactional-boosters/agents/openai.yaml",
@@ -1654,56 +1678,52 @@
       "sha256": "6220d7a9ad8af8cd031a95149e500e9400b13400d5f002788d65a913b4f8fa9a"
     },
     {
-      "path": "plugins/agent-foundry/skills/unity-transactional-boosters/SKILL.md",
-      "sha256": "df13ea31d527a39815e64bc50e9358c231326642ac07df631057ca121a764f7c"
+      "path": "plugins/agent-foundry/skills/ux-design/SKILL.md",
+      "sha256": "eb04bd75a1f22fe69d7f8170546967fdfd6e42748f32d10a16894ef0d91ae131"
     },
     {
       "path": "plugins/agent-foundry/skills/ux-design/references/claude-skill.md",
       "sha256": "9f2444afc9f051143cf9e2c56c8a53bd58abfe048892dded91a72901df857a77"
     },
     {
-      "path": "plugins/agent-foundry/skills/ux-design/SKILL.md",
-      "sha256": "eb04bd75a1f22fe69d7f8170546967fdfd6e42748f32d10a16894ef0d91ae131"
+      "path": "plugins/agent-foundry/skills/ux-review/SKILL.md",
+      "sha256": "8961742cdd5585340626da0bd7a0297cd67ae6c5e8a0f9048c5a95b5933aea50"
     },
     {
       "path": "plugins/agent-foundry/skills/ux-review/references/claude-skill.md",
       "sha256": "e6062a23c976e87333565be76da26612c2a2d6bcd0a943d2e884415e15b4046d"
     },
     {
-      "path": "plugins/agent-foundry/skills/ux-review/SKILL.md",
-      "sha256": "8961742cdd5585340626da0bd7a0297cd67ae6c5e8a0f9048c5a95b5933aea50"
-    },
-    {
       "path": "plugins/agent-foundry/skills/verification-before-completion/SKILL.md",
       "sha256": "e1b1be29422468b2ecc34fc4e1812167c8c9f034d3ad7e56e0ebaae2ca7380b1"
-    },
-    {
-      "path": "plugins/agent-foundry/skills/vertical-slice/references/claude-skill.md",
-      "sha256": "6124a8da6a6ec0a18b98c2b066f5a0ba27aefe07f71b59aa5a6395c4f8859460"
     },
     {
       "path": "plugins/agent-foundry/skills/vertical-slice/SKILL.md",
       "sha256": "a64322e71de3132efca5e3181452e84772f6cbda2684b74bf6067eb1531ed7d3"
     },
     {
-      "path": "plugins/agent-foundry/THIRD_PARTY_NOTICES.md",
-      "sha256": "3a92184f123367525b734efe55a0a52bede69cce3c1944912bd5384e33e56885"
-    },
-    {
-      "path": "plugins/agent-foundry/UNITY_COMPANION_LICENSE.md",
-      "sha256": "3aa49b3ed3521563a08c0d9d9327ef8bcee75efe92137c572a4f2216f8f641df"
-    },
-    {
-      "path": "README.md",
-      "sha256": "f10107f99f39627fed974f5b30010d971c130583a240ab7a1882faaed719ff0b"
+      "path": "plugins/agent-foundry/skills/vertical-slice/references/claude-skill.md",
+      "sha256": "6124a8da6a6ec0a18b98c2b066f5a0ba27aefe07f71b59aa5a6395c4f8859460"
     },
     {
       "path": "scripts/install.ps1",
-      "sha256": "a59302673dfd731409539b8deacf35a172819e3cb9914422d0de2e1e883ff922"
+      "sha256": "c9cbf3f63cdbd71d6bf4f3682fc1180136e404f280714f4b8295c4ea201dca52"
+    },
+    {
+      "path": "scripts/install.py",
+      "sha256": "13aae99428835208099cf84648aa9e1fd40c947f036667807822a26c7cccbec0"
     },
     {
       "path": "scripts/verify.ps1",
-      "sha256": "2a9b529c863340281b8b263b6b6d93f48ad08b4c68f867f42a0552c19d8df56f"
+      "sha256": "7e2d3ca5825eb049fc1d56ec33c198aa74453b379c499ab44f9fb08129135118"
+    },
+    {
+      "path": "scripts/verify.py",
+      "sha256": "b98dc02d291ff8963ef1b2e26f76e4922b1e63651eb15987fe255013dc5f209e"
+    },
+    {
+      "path": "skills/cowork-collaboration/SKILL.md",
+      "sha256": "62123a07fe0c83eb7336cc2d79f332ae325edf670c6f56f8658067fbba7074b3"
     },
     {
       "path": "skills/cowork-collaboration/agents/openai.yaml",
@@ -1716,10 +1736,6 @@
     {
       "path": "skills/cowork-collaboration/scripts/test_ledger.py",
       "sha256": "cb98b5a47ec5f6de0d5db159604f33af6448970bd6dcb484f019fb6c0d3922cb"
-    },
-    {
-      "path": "skills/cowork-collaboration/SKILL.md",
-      "sha256": "f0f497892e89ce1283ada920d052f306957fe6111027a8fc28cfcbfbd5b86050"
     }
   ]
 }

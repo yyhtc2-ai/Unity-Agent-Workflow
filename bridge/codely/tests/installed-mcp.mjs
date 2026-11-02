@@ -1,10 +1,16 @@
 import assert from "node:assert/strict";
 import { existsSync } from "node:fs";
 import { join, resolve } from "node:path";
+import { execFileSync } from "node:child_process";
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 
-const entry = join(process.env.APPDATA, "npm/node_modules/@codely/cli/bundle/gemini.js");
+// An explicit entry also supports nonstandard installations and version managers.
+const npmRoot = process.env.BRIDGE_CODELY_ENTRY ? null :
+  (process.platform === "win32"
+    ? execFileSync("cmd.exe", ["/d", "/c", "npm root -g"], { encoding: "utf8" })
+    : execFileSync("npm", ["root", "-g"], { encoding: "utf8" })).trim();
+const entry = process.env.BRIDGE_CODELY_ENTRY || join(npmRoot, "@codely/cli/bundle/gemini.js");
 assert.ok(existsSync(entry), "installed Codely CLI entry is missing");
 const transport = new StdioClientTransport({ command: process.execPath, args: [resolve("dist/server.js")],
   env: { ...process.env, BRIDGE_EXPOSE: "codely", BRIDGE_CODELY_ENTRY: entry }, stderr: "pipe" });
