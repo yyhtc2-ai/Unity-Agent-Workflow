@@ -46,4 +46,4 @@ powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/install.ps1
 
 ## 来源与许可证
 
-保留 [第三方说明](docs/THIRD_PARTY.md) 及各组件许可证。Agent Foundry 包含受 Unity Companion License 约束的参考材料，不能将整个仓库一概声明为 MIT。本包没有凭据、历史会话、任务数据库、node_modules 或个人 Codex 配置。上传 GitHub 前可自行选择仓库名；此项目未设置远程地址或推送。
+保留 [第三方说明](docs/THIRD_PARTY.md) 及各组件许可证。Agent Foundry 包含受 Unity Companion License 约束的参考材料，不能将整个仓库一概声明为 MIT。本包没有凭据、历史会话、任务数据库、node_modules 或个人 Codex 配置。项目仓库：[yyhtc2-ai/Unity-Agent-Workflow](https://github.com/yyhtc2-ai/Unity-Agent-Workflow)。

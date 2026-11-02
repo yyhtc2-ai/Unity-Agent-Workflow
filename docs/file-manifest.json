@@ -107,7 +107,7 @@
     },
     {
       "path": "LICENSE",
-      "sha256": "65f861ca1562ac27b27b12a5ce6a1f29c391998d322381432832444356cf77e5"
+      "sha256": "bb69b337e83ce14a98ca108837515bbeb1e6e41691ccaabdedb7a3650ee1443e"
     },
     {
       "path": "plugins/agent-foundry/.claude-plugin/plugin.json",
@@ -1695,7 +1695,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "28a1c8e302cc741c03345e6ee12fd9e13278c8020e7b720c4d166c924661609e"
+      "sha256": "54fdf86bf3aa7b4c9e7c870a1258f803f7939f5d4150c60eb1bbcbae64dd6557"
     },
     {
       "path": "scripts/install.ps1",
