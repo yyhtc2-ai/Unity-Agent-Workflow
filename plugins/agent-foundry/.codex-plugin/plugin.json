@@ -1,0 +1,36 @@
+{
+  "name": "agent-foundry",
+  "version": "0.9.4",
+  "description": "Task-first workflows with unified orchestration, Unity CLI readiness, game design, Firebase, QA and releases. 99 skills; pair with Unity’s official specialist plugin.",
+  "author": {
+    "name": "Furkan Tokkan"
+  },
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "claude-code",
+    "skills",
+    "unity",
+    "game-development",
+    "game-feel"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Agent Foundry",
+    "shortDescription": "From a rough idea to a verified task",
+    "longDescription": "A curated collection of task-first development skills, Unity workflows, game design references, review checklists and release procedures for coding agents.",
+    "developerName": "Furkan Tokkan",
+    "category": "Engineering",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "defaultPrompt": [
+      "Use create-task to scope this feature",
+      "Run unity-cli project readiness",
+      "Review this change with game-code-review",
+      "Polish this hit or menu with game-feel-polish"
+    ],
+    "brandColor": "#F97316"
+  }
+}

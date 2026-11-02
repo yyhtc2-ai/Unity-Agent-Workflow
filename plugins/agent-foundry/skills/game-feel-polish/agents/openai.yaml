@@ -1,0 +1,4 @@
+interface:
+  display_name: "Game Feel Polish"
+  short_description: "Unity Liquid UI, animated widgets and game feel"
+  default_prompt: "Use $game-feel-polish to adapt Liquid UI to this Unity menu or HUD with UI Toolkit, scoped feedback and reduced-motion support, then verify input parity and an A/B comparison."

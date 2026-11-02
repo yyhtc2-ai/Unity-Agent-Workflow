@@ -1,0 +1,50 @@
+{
+  "name": "qantara",
+  "version": "0.2.0",
+  "description": "Qantara (arched bridge): an MCP bridge that lets coding agents (Claude Code, Codex, Gemini) delegate tasks to each other.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude-code",
+    "codex",
+    "agent",
+    "multi-agent",
+    "delegation"
+  ],
+  "license": "MIT",
+  "author": "Ahmed Gamil <ahmed.gamil.codes@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmeedgamil/qantara.git"
+  },
+  "homepage": "https://github.com/ahmeedgamil/qantara#readme",
+  "bugs": {
+    "url": "https://github.com/ahmeedgamil/qantara/issues"
+  },
+  "type": "module",
+  "bin": {
+    "qantara": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "prepublishOnly": "npm run build",
+    "dev": "tsc -p tsconfig.json --watch",
+    "start": "node dist/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.6.0"
+  }
+}
