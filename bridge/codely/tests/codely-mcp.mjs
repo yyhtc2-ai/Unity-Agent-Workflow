@@ -11,7 +11,7 @@ const transport = new StdioClientTransport({
   command: process.execPath,
   args: [resolve("dist/server.js")],
   env: { ...process.env, BRIDGE_EXPOSE: "codely", BRIDGE_CODELY_ENTRY: resolve("tests/fake-codely.mjs"),
-    BRIDGE_WAIT_CAP_MS: "700", BRIDGE_JOB_TIMEOUT_MS: "1300", BRIDGE_MAX_OUTPUT_BYTES: "2048" },
+    BRIDGE_STATE_DIR: mkdtempSync(join(tmpdir(), "codely-test-state-")), BRIDGE_WAIT_CAP_MS: "700", BRIDGE_JOB_TIMEOUT_MS: "1300", BRIDGE_MAX_OUTPUT_BYTES: "2048" },
   stderr: "pipe",
 });
 const client = new Client({ name: "codely-bridge-test", version: "1.0.0" });
@@ -23,7 +23,7 @@ try {
   assert.match(client.getInstructions(), /Never delegate visual design/);
   assert.match(client.getInstructions(), /image generation/);
   const tools = (await client.listTools()).tools.map((t) => t.name).sort();
-  assert.deepEqual(tools, ["ask_codely", "cancel_job", "check_job", "wait_job"]);
+  assert.deepEqual(tools, ["ask_codely", "cancel_job", "check_job", "recover_job", "wait_job"]);
 
   for (const type of ["visual_design", "image_generation"]) {
     let rejected = false;
@@ -82,7 +82,9 @@ try {
   assert.match(text(timeout), /timed out/);
 
   const large = await call("ask_codely", { cwd: project, task_type: "analysis", task: "TEST_LARGE", background: false });
-  assert.equal(large.isError, undefined, text(large));
+  assert.equal(large.isError, true, text(large));
+  assert.equal(large.structuredContent.status, "incomplete");
+  assert.match(text(large), /XXXX/);
   assert.match(text(large), /output truncated/);
 
   const missingResult = await call("ask_codely", { cwd: project, task_type: "analysis", task: "TEST_NO_RESULT", background: false });
@@ -102,7 +104,7 @@ try {
   assert.match(text(immediateStop), /cancelled/);
   assert.ok((await client.listTools()).tools.length, "bridge survives immediate cancellation");
 
-  console.log("PASS: tools, forbidden categories, paths, stdin, modes, resume, progress, exclusion, cancellation, timeout, output cap, missing result and 402 propagation");
+  console.log("PASS: tools, forbidden categories, paths, native argv, modes, resume, progress, exclusion, cancellation, timeout, output cap, missing result and 402 propagation");
 } finally {
   await client.close();
 }

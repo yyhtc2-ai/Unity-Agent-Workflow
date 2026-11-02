@@ -4,11 +4,11 @@
  * (e.g. expose only `codex` inside Claude Code, only `claude` inside Codex).
  */
 
-function num(name: string, fallback: number): number {
+function num(name: string, fallback: number, minimum = 1): number {
   const raw = process.env[name];
   if (!raw) return fallback;
   const n = Number(raw);
-  return Number.isFinite(n) ? n : fallback;
+  return Number.isSafeInteger(n) && n >= minimum && n <= 2_147_483_647 ? n : fallback;
 }
 
 function list(name: string): string[] {
@@ -33,6 +33,9 @@ export const config = {
   waitCapMs: num("BRIDGE_WAIT_CAP_MS", 45_000),
   /** Max bytes of captured output, to protect the calling model's context. */
   maxOutputBytes: num("BRIDGE_MAX_OUTPUT_BYTES", 1_000_000),
+  /** Parsing and disk limits are separate from the small MCP response limit. */
+  maxEventBytes: num("BRIDGE_MAX_EVENT_BYTES", 4_000_000),
+  maxArtifactBytes: num("BRIDGE_MAX_ARTIFACT_BYTES", 8_000_000),
 
   /** Which agents to expose as tools (empty => all registered). */
   expose: list("BRIDGE_EXPOSE"),
@@ -47,7 +50,7 @@ export const config = {
   /** Recursion / fan-out guard. */
   maxDepth: num("BRIDGE_MAX_DEPTH", 3),
   /** Current depth, threaded in from a parent bridge invocation (0 at the top). */
-  depth: num("BRIDGE_DEPTH", 0),
+  depth: num("BRIDGE_DEPTH", 0, 0),
 
   /** Codex execution settings. */
   codex: {

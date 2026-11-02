@@ -23,11 +23,11 @@
     },
     {
       "path": "README.md",
-      "sha256": "e6c39457d3798db0b2ca5845219f8cc6d512a78eee6351d68849cac920efee76"
+      "sha256": "977e70d28810b6023a94dee6f69fb567f169dab3f103a237d8903b319c498cf2"
     },
     {
       "path": "bridge/codely/CODELY-BRIDGE.md",
-      "sha256": "c3654b001b33f703492237752a92d57d0c51b7dc5de65022dbe4a47d0670f545"
+      "sha256": "eded77cedceffa519489d62be94719ac1e68da69993c9b6344e137bcb36d2295"
     },
     {
       "path": "bridge/codely/LICENSE",
@@ -35,19 +35,23 @@
     },
     {
       "path": "bridge/codely/package-lock.json",
-      "sha256": "2d9dc1ae50e304d0c04c48293059e85d7497b813f2079c8dc88f9e742bb5e702"
+      "sha256": "6389173681712e549a1cc73375e021deb0640729d971abbe4501c026c3c2630d"
     },
     {
       "path": "bridge/codely/package.json",
-      "sha256": "1dcdfb4b998db58c15ed1ee6f221f9d289693544b5062b281da31416259a3d9a"
+      "sha256": "0d4c2a16de4901ce80a3de066675ddfa5f27c6f26c065cb89b778cbcc6e6c86a"
+    },
+    {
+      "path": "bridge/codely/src/atomic-file.ts",
+      "sha256": "f09bebbbbe216cdc2579809bef24a54e5aac9a46885d41c3174d967b4663d1ae"
     },
     {
       "path": "bridge/codely/src/cli.ts",
-      "sha256": "434209f88e503611d141b8061b3b96ac9030b2c455f84482e25e967017ecc6cd"
+      "sha256": "7a16d8cf64001bcdddf4dd0699149e2a33e27ee2fb99bf0f01fd0d7b2dd8f221"
     },
     {
       "path": "bridge/codely/src/config.ts",
-      "sha256": "c997275c6cc8aeed58e009a8f82e97aef06e81cf8121cfa6594664c69ba4d330"
+      "sha256": "f08f62fcf24d74dde04d68898deeaf4004b0f7f740ae2d712fbddaf99da45706"
     },
     {
       "path": "bridge/codely/src/debug.ts",
@@ -55,15 +59,19 @@
     },
     {
       "path": "bridge/codely/src/exec.ts",
-      "sha256": "f3375671c44df685702cb3aa277b12f715a438f43dd8ecd1b8cc7e865e3f9a57"
+      "sha256": "9913af9b18938a2efc83e12457bacd15a99787820de6e1d896d863528b9bc087"
     },
     {
       "path": "bridge/codely/src/jobs.ts",
-      "sha256": "30d8bcd591bf30e9a8122c6fe948d9a345bc8b0ae5dc6e16d69d7b6f41786660"
+      "sha256": "cfbdc3c914f571ff2ef6729d921dc3d4083e1e0360765379acc0219044614c47"
+    },
+    {
+      "path": "bridge/codely/src/limits.ts",
+      "sha256": "bed7422c79c64db9c2d0f009cde9e88e23ade7f6c3bc5b9aa3824355b7394ea9"
     },
     {
       "path": "bridge/codely/src/registry.ts",
-      "sha256": "cdeaae47f1de012ac8f8f67c9037670b84af5e7e6e0cf585450db686e3766daa"
+      "sha256": "e6b74bff39855e6a069947a15bca9998a26d7d0788e9979df881ab0ec42c3acf"
     },
     {
       "path": "bridge/codely/src/runners/claude.ts",
@@ -71,7 +79,7 @@
     },
     {
       "path": "bridge/codely/src/runners/codely.ts",
-      "sha256": "80d189bde57199b1f2c8589e9824fa24ddf35631ce457e00403898329f28d25c"
+      "sha256": "83f25493e3c12ebe21a579758f3eb5c672dcb3f089e29cdefb56d41bb198bef8"
     },
     {
       "path": "bridge/codely/src/runners/codex.ts",
@@ -83,7 +91,7 @@
     },
     {
       "path": "bridge/codely/src/server.ts",
-      "sha256": "21f3302b6a1af38ee6f2defe34a6c8fc562aba5df3e77887cac60ab7b772a3db"
+      "sha256": "bc0ad67487955178f19cee5b5f50143ea299b5d1e307ef7e32fba30ef88339a0"
     },
     {
       "path": "bridge/codely/src/sessions.ts",
@@ -91,19 +99,27 @@
     },
     {
       "path": "bridge/codely/src/setup.ts",
-      "sha256": "df9647f6d1fe417c8ff089b139929d7f7b5c9e31671aeb935058b78d4abd40a4"
+      "sha256": "360f1bb953f2590a5c2207c8ff1a45054d15f71e558d86bc1257a7e5671ea8c6"
     },
     {
       "path": "bridge/codely/tests/codely-mcp.mjs",
-      "sha256": "fee75e7b7fb1b463b72b88ae0224b7a411a499715937cad289f5c1aeb414d3e2"
+      "sha256": "077a113d4c01e96577b2d7ea2f3944f27393114273d47142c504897f47587fec"
     },
     {
       "path": "bridge/codely/tests/fake-codely.mjs",
-      "sha256": "b9bd63b805518d585e03d3e8b8b2eabc4af65a4c9d9ba7695b2816002d96c2e5"
+      "sha256": "7c07cac1212382e603e5a3e2b0e07dcad3d9b157002d3154dcb0ad8d75f44d6b"
     },
     {
       "path": "bridge/codely/tests/installed-mcp.mjs",
-      "sha256": "f9c8f67351b2245adf8395925eea05e78fdc80a8b0a3b537880c8b5a7636a96f"
+      "sha256": "918ea90616ba680b7a4fc1be7d58c968f9871c1e25217da2db76a1877eb69a3c"
+    },
+    {
+      "path": "bridge/codely/tests/live-e2e.mjs",
+      "sha256": "f332518dcf379273c3009e36cfcc8e1f2b16185deae6370058a919b27b359d67"
+    },
+    {
+      "path": "bridge/codely/tests/regressions.test.mjs",
+      "sha256": "8afbd6ca7f114f65120bb500254b96ecc5b8d4cf40a7d3247a219d5e6d361e42"
     },
     {
       "path": "bridge/codely/tsconfig.json",
@@ -111,11 +127,15 @@
     },
     {
       "path": "docs/ARCHITECTURE.md",
-      "sha256": "13761b615514d520bc6cca175f3b1353d440e79ce228d227c3a15f421ff2fb1e"
+      "sha256": "e2525064f743705623aae72323eef5529d2f74958e43ea9e0a59c1ba63b6f40e"
     },
     {
       "path": "docs/THIRD_PARTY.md",
       "sha256": "9474084de1b15b10dc41f62119a1876471282b3291fd9ed629815179ee9c6076"
+    },
+    {
+      "path": "docs/VALIDATION.md",
+      "sha256": "5d7b03c64a390486766f24a971c09175a59664997390e3b8c5c6421a4c371d2a"
     },
     {
       "path": "examples/AGENTS.collaboration.md",
@@ -1715,15 +1735,15 @@
     },
     {
       "path": "scripts/verify.ps1",
-      "sha256": "7e2d3ca5825eb049fc1d56ec33c198aa74453b379c499ab44f9fb08129135118"
+      "sha256": "bef4be604cc36a4c75162ddf648700413475b1ddb5d4f4386fafd51f060ccd43"
     },
     {
       "path": "scripts/verify.py",
-      "sha256": "b98dc02d291ff8963ef1b2e26f76e4922b1e63651eb15987fe255013dc5f209e"
+      "sha256": "dc580d2fa179591d24aef6dc3003598059c43a93222420b6bd4ebcc07b1199c7"
     },
     {
       "path": "skills/cowork-collaboration/SKILL.md",
-      "sha256": "62123a07fe0c83eb7336cc2d79f332ae325edf670c6f56f8658067fbba7074b3"
+      "sha256": "bdb758e155c5d75eac46e9b3d3073626697901320f8ea38b05fe1f3ea2a1151a"
     },
     {
       "path": "skills/cowork-collaboration/agents/openai.yaml",

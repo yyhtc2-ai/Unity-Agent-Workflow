@@ -8,6 +8,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Build failed' }
     & node tests/codely-mcp.mjs
     if ($LASTEXITCODE -ne 0) { throw 'MCP tests failed' }
+    & node --test tests/regressions.test.mjs
+    if ($LASTEXITCODE -ne 0) { throw 'Bridge regression tests failed' }
 } finally { Pop-Location }
 Push-Location (Join-Path $root 'skills/cowork-collaboration/scripts')
 try {

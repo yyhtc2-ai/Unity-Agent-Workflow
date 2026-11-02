@@ -36,6 +36,8 @@ export interface RunOptions {
   signal?: AbortSignal;
   /** Codely task category; visual design and image generation are excluded. */
   taskType?: CodelyTaskType;
+  /** Local, bounded answer artifact, never a model-supplied path. */
+  outputPath?: string;
   onSpawn?: (pid: number) => void;
   onProgress?: (event: RunProgress) => void;
 }
@@ -49,6 +51,8 @@ export interface RunResult {
   cost?: number;
   /** True if output was truncated by the output cap. */
   truncated?: boolean;
+  resultPath?: string;
+  artifactTruncated?: boolean;
 }
 
 export interface AgentRunner {

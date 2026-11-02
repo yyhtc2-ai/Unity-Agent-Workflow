@@ -65,10 +65,11 @@ export function runCommand(
       windowsHide: true,
     });
 
-    if (child.pid !== undefined) opts.onSpawn?.(child.pid);
-
     let stdout = "";
     let stderr = "";
+    let stdoutBytes = 0;
+    let stderrBytes = 0;
+    let callbackError: Error | undefined;
     let truncated = false;
     let timedOut = false;
     let cancelled = false;
@@ -92,27 +93,26 @@ export function runCommand(
     // A child can exit or be cancelled before consuming stdin. Handle EPIPE so
     // one failed job cannot crash the entire bridge process.
     child.stdin.on("error", (err) => debug(`child stdin error: ${err.message}`));
-    if (opts.stdin !== undefined) {
-      child.stdin.write(opts.stdin);
-      child.stdin.end();
-    }
+    // Also provide EOF when the prompt is supplied only through argv.
+    child.stdin.end(opts.stdin);
 
     child.stdout.on("data", (chunk: Buffer) => {
-      opts.onStdoutChunk?.(chunk);
-      if (stdout.length < cap) {
-        stdout += chunk.toString("utf8");
-        if (stdout.length >= cap) {
-          stdout = stdout.slice(0, cap);
-          truncated = true;
-        }
+      try { opts.onStdoutChunk?.(chunk); }
+      catch (err) {
+        callbackError = err instanceof Error ? err : new Error(String(err));
+        child.kill("SIGKILL");
       }
+      const remaining = Math.max(0, cap - stdoutBytes);
+      const kept = chunk.subarray(0, remaining);
+      stdout += kept.toString("latin1");
+      stdoutBytes += kept.length;
+      if (chunk.length > remaining) truncated = true;
     });
 
     child.stderr.on("data", (chunk: Buffer) => {
-      if (stderr.length < cap) {
-        stderr += chunk.toString("utf8");
-        if (stderr.length >= cap) stderr = stderr.slice(0, cap);
-      }
+      const kept = chunk.subarray(0, Math.max(0, cap - stderrBytes));
+      stderr += kept.toString("latin1");
+      stderrBytes += kept.length;
     });
 
     child.on("error", (err) => {
@@ -137,7 +137,12 @@ export function runCommand(
           `stderrTail=${JSON.stringify(stderr.slice(-300))}`,
       );
       opts.signal?.removeEventListener("abort", onAbort);
-      const result: ExecResult = { code, stdout, stderr, timedOut, truncated };
+      const decode = (s: string) => new TextDecoder("utf-8").decode(Buffer.from(s, "latin1"), { stream: true });
+      const result: ExecResult = { code, stdout: decode(stdout), stderr: decode(stderr), timedOut, truncated };
+      if (callbackError) {
+        reject(new ExecError(`CLI output handler failed: ${callbackError.message}`, result));
+        return;
+      }
       if (cancelled) {
         reject(new ExecError(`"${command}" was cancelled`, result));
         return;
@@ -153,5 +158,10 @@ export function runCommand(
       }
       resolve(result);
     });
+    try { if (child.pid !== undefined) opts.onSpawn?.(child.pid); }
+    catch (err) {
+      callbackError = err instanceof Error ? err : new Error(String(err));
+      child.kill("SIGKILL");
+    }
   });
 }

@@ -23,7 +23,7 @@
 
 | 项目 | 主要定位 | 本项目针对目标场景提供的补充 | 选用边界 |
 | --- | --- | --- | --- |
-| [Qantara](https://github.com/AhmeedGamil/qantara) | 通用 MCP 桥接，让 Claude Code、Codex、Gemini 等 CLI 相互委派；宿主负责判断任务和结果 | 在其桥接思路与代码基础上适配 Codely，解析流式输出，报告会话 ID、PID 和最近工具事件；增加单桥接进程内的项目互斥，并衔接 Unity 任务合同 | 需要多种 CLI 相互调用时，优先评估上游 Qantara；本包服务只公开 Codely 相关工具 |
+| [Qantara](https://github.com/AhmeedGamil/qantara) | 通用 MCP 桥接，让 Claude Code、Codex、Gemini 等 CLI 相互委派；宿主负责判断任务和结果 | 在其桥接思路与代码基础上适配 Codely，解析流式输出，报告会话 ID、PID 和最近工具事件；增加共享状态目录内的跨进程项目互斥，并衔接 Unity 任务合同 | 需要多种 CLI 相互调用时，优先评估上游 Qantara；本包服务只公开 Codely 相关工具 |
 | [Claude Code Game Studios](https://github.com/Donchitos/Claude-Code-Game-Studios) | 面向 Claude Code 的游戏工作室模板，以角色、技能、规则和质量关卡组织开发，覆盖多种引擎 | 通过 Agent Foundry 的已有适配，提供 Codex 技能入口，再连接实际的 Codely CLI 执行与回收流程，适合已有 Unity 工程按需接入 | 需要 Claude Code 原生工作室模板时，可直接评估该项目；本包不部署其完整原生 hooks 或全部运行机制，也不声称比其更轻或质量更高 |
 | [Unity 官方 Agent 插件](https://github.com/Unity-Technologies/unity-agent-plugin) | 提供游戏开发、商业化和性能优化等 Unity 专项技能 | 补充跨 CLI 的任务交接、角色边界和独立验收约定，可与官方专项技能配合使用 | 专项技能与协作编排可以组合；本项目不替代 Unity 官方技能，也不自带 Editor 连接服务 |
 
@@ -34,7 +34,7 @@
 3. **更容易排查交接故障**：流式进度、精确会话恢复和明确失败状态，为中断、超时、缺失终止结果及额度错误提供排查依据。配套模拟 CLI 测试可在不消耗模型额度的情况下检查桥接行为。
 4. **便于复用和审阅**：插件快照、协作技能、桥接代码、安装脚本和来源说明分别存放，包含锁文件与内容清单；可审查规则后用于不同 Unity 项目。
 
-上述价值来自流程约定与适配实现，尚无跨项目效率、成本或生成质量的对照实测。当前也没有跨进程锁、持久化任务队列或无人值守调度；各平台安装入口及 CLI 适配仍需在实际账户环境中验证，不能将离线测试通过等同于完整生产验证。
+上述价值来自流程约定与适配实现，尚无跨项目效率、成本或生成质量的对照实测。当前已有跨进程项目租约和持久化执行快照，但没有自动重放的持久化任务队列或无人值守调度；各平台安装入口及 CLI 适配仍需在实际账户环境中验证，不能将离线测试通过等同于完整生产验证。
 
 ## 目录
 
@@ -128,11 +128,38 @@ codex mcp get codely_bridge
 
 已添加 [跨平台离线 CI](.github/workflows/compatibility.yml)，在 macOS、Windows 和 Linux runner 上执行构建、模拟 CLI 集成测试及交接工具测试。[首次运行](https://github.com/yyhtc2-ai/Unity-Agent-Workflow/actions/runs/41390148453)的 macOS 和 Linux 测试已通过，最新结果以仓库 Actions 为准；CI 不安装 Codely、不登录账户、不启动 Unity。当前改动在 Windows 完成，不能据此声称 Mac 上的真实 Codely/Unity 链路已验证。
 
+## 运行、恢复和升级
+
+桥接器 0.3.0 公开 `ask_codely`、`check_job`、`wait_job`、`cancel_job` 和 `recover_job`。任务正文与固定策略直接通过原生 Node 参数 `-p` 传递，关闭 shell，不依赖 Codely Nightly 未实际接收的 stdin。正文加策略上限为 24000 UTF-8 字节；Windows 转义后过长时也会拒绝，需拆分任务，不会静默截断或回退到 stdin。
+
+执行快照、回答文件和项目租约默认保存在 `${CODEX_HOME:-~/.codex}/codely-bridge/`。可通过 MCP 环境变量 `BRIDGE_STATE_DIR` 指定绝对目录；要互斥的桥接进程必须共享同一目录。job 使用 UUID，不因服务重启复用 ID。这些是执行记录，正式任务合同仍由 Agent Foundry/现有项目流程管理。
+
+- `check_job` / `wait_job` 同时返回文本与结构化字段，包括 `job_id`、`status`、`session_id`、`pid`、`result_path`。`done` 只说明 CLI 成功，不能替代 Codex 验收。
+- 服务意外退出后，原记录显示 `interrupted`，项目租约保留。先检查 CLI PID、子孙进程、会话及部分改动；确认无写入者后，调用 `recover_job`，传入 `job_id`、`confirm_no_writers: true` 及 `evidence`。工具会拒绝仍存活的原桥接或 CLI；只将中断执行记为失败并释放租约，不重新发任务或自动接受产物。PID 复用等无法确认的情况应保持阻塞。
+- `incomplete` 表示 CLI 成功但响应或回答文件发生截断，返回 `isError: true` 及截断标记，需检查 `result_path` 指向的本地文件。默认 MCP 文本响应上限 1000000 字节，单事件解析上限 4000000 字节，回答文件上限 8000000 字节；分别可用 `BRIDGE_MAX_OUTPUT_BYTES`、`BRIDGE_MAX_EVENT_BYTES`、`BRIDGE_MAX_ARTIFACT_BYTES` 设置。结构化元数据另计。
+- `cancel_job` 仍只取消直接 CLI 进程；共享租约不能约束其他编辑工具、使用不同状态目录的实例或遗留子孙进程。重试前仍需核对写入者。
+
+已有安装不会被安装器覆盖。升级时先收取/停止原任务，再拉取代码并构建；如果 MCP 已指向本仓库，重启 Codex 会话即可加载新构建。若仍指向旧的本机副本，需按 [桥接器文档](bridge/codely/CODELY-BRIDGE.md) 更新注册。安装在用户技能目录的 `cowork-collaboration` 也需比较后同步更新，保留自己的修改。旧 `qantara setup` 已禁用，不会再修改 Claude/Gemini/Codex 的通用桥接配置。
+
 ## 验证和已知限制
 
-`verify.ps1` 构建桥接器、运行模拟 CLI 的 MCP 集成测试和交接记录测试，不消耗模型额度。实际账户鉴权、模型额度和 Unity Editor 连接需在使用环境验证。此前实测 CLI 为 `1.0.0-nightly.71`；该适配器的真实模型端到端调用未完成验证（账户曾返回 402）。
+`python3 scripts/verify.py`（Windows 也可使用 `scripts/verify.ps1`）执行构建、原有模拟 CLI 集成测试、12 项新增回归及 5 项交接工具测试，不调用模型。新增回归覆盖正文传递、异常事件隔离、跨进程互斥、重启与崩溃恢复、UTF-8 截断、旧 setup 拒绝配置修改，以及 Windows 文件占用与快照并发更新。
 
-任务运行在桥接进程内存中；重启后 job 丢失，交接记录用于人工恢复。项目互斥只覆盖单个桥接进程；取消仅针对直接子进程。CLI 即使 ask 模式也可能写入项目 `.codely-cli/auto-saves/`。桥接完成不等于验收完成，也不提供 Codex 退出后的常驻监控。
+2026-11-02 已用真实 Codely Nightly `1.0.0-nightly.71` 验证一次隔离 Unity 元数据工具任务：完整任务和策略送达、随机回执匹配、14 项独立行为检查通过、原文件保持不变。首次尝试暴露的 Windows `EPERM` 快照替换问题已增加有界重试；后续调用成功结束，验收器补充识别 CLI 自身索引缓存后，复核已有会话通过，未再次调用模型。详见 [验证记录](docs/VALIDATION.md)。
+
+在用户明确授权真实账户调用后，可手动运行：
+
+```bash
+cd bridge/codely
+# 会消耗账户额度；默认 CI 不运行
+node tests/live-e2e.mjs --allow-model-call
+# 对已完成的同一会话重新验收，不再调用模型
+node tests/live-e2e.mjs --verify-existing /absolute/path/to/evidence-directory
+```
+
+CLI 即使使用 `ask` / `--no-upm`，仍可能写入 `.codely-cli/auto-saves/` 和 `.codely-cli/UnityInsight/` 存档、索引或锁文件。本流程单独记录这些副产物，不自动删除、提交或修改忽略规则；严格要求整个文件系统只读时需另行隔离。共享租约是协作约束，不是操作系统沙箱。
+
+实际鉴权、额度、CLI 版本变化、Unity Editor 联动和 C# / 场景 / Prefab 开发仍需对应环境验证。单次 Node 工具任务不代表全部 99 个 Agent Foundry 技能经过行为验证，也不能推断复杂 Unity 任务的质量、成本或速度。服务重启只恢复查询依据，不提供 Codex 退出后的常驻调度；历史快照与回答文件需由使用者按保留需求管理。
 
 ## 来源与许可证
 

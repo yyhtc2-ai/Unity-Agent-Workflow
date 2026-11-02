@@ -11,7 +11,8 @@ import {
   exposedRunners,
   register,
 } from "./registry.js";
-import { createJob, getJob, listJobs, type Job } from "./jobs.js";
+import { answerPath, createJob, getJob, listJobs, ownsJob, recoverJob, releaseProject, saveJob, type Job } from "./jobs.js";
+import { utf8Prefix } from "./limits.js";
 import { debug } from "./debug.js";
 import { codelyRunner } from "./runners/codely.js";
 
@@ -98,7 +99,7 @@ function formatResult(
  */
 function jobNotices(): string {
   const lines = listJobs()
-    .filter((j) => !j.delivered && (j.status === "done" || j.status === "failed"))
+    .filter((j) => !j.delivered && ["done", "incomplete", "failed", "interrupted"].includes(j.status)).slice(0, 4)
     .map((j) => {
       const ago = Math.round((Date.now() - (j.finishedAt ?? Date.now())) / 1000);
       return (
@@ -114,7 +115,7 @@ function textResult(text: string, isError = false, notices = true) {
   const suffix = notices ? jobNotices() : "";
   return {
     ...(isError ? { isError: true } : {}),
-    content: [{ type: "text" as const, text: `${text}${suffix}` }],
+    content: [{ type: "text" as const, text: utf8Prefix(`${text}${suffix}`, config.maxOutputBytes) }],
   };
 }
 
@@ -123,7 +124,7 @@ function elapsedSec(job: Job): number {
 }
 
 /** Shared status→response logic for check_job and wait_job. */
-function jobStatusResult(job: Job) {
+function jobStatusText(job: Job) {
   switch (job.status) {
     case "running":
       return textResult(
@@ -134,10 +135,14 @@ function jobStatusResult(job: Job) {
       );
     case "cancelling":
       return textResult(`Cancellation requested for job "${job.id}"; waiting for the child process to exit.`);
+    case "incomplete":
     case "done":
       job.delivered = true;
+      saveJob(job);
       return textResult(
-        `Job "${job.id}" (${job.agent}) finished in ${elapsedSec(job)}s:\n\n` +
+        `Job "${job.id}" (${job.agent}) ${job.status === "incomplete" ? "has an incomplete response" : "finished"} in ${elapsedSec(job)}s. ` +
+          `${job.result?.resultPath ? `Answer artifact: ${job.result.resultPath}. ` : ""}` +
+          `${job.status === "incomplete" ? "output truncated; CLI success is not acceptance. " : ""}\n\n` +
           formatResult(
             job.agent,
             job.result!.text,
@@ -145,9 +150,14 @@ function jobStatusResult(job: Job) {
             job.result!.cost,
             job.result!.truncated,
           ),
+        job.status === "incomplete",
       );
+    case "interrupted":
+      return textResult(`Job "${job.id}" is interrupted. ${job.error} CLI PID: ${job.pid ?? "not recorded"}. ` +
+        `After verifying no writers remain, use recover_job with explicit confirmation and evidence.`, true);
     case "failed":
       job.delivered = true;
+      saveJob(job);
       return textResult(
         `Job "${job.id}" (${job.agent}) failed after ${elapsedSec(job)}s: ${job.error}`,
         true,
@@ -159,15 +169,25 @@ function jobStatusResult(job: Job) {
   }
 }
 
+function jobStatusResult(job: Job) {
+  return { ...jobStatusText(job), structuredContent: {
+    job_id: job.id, status: job.status, cwd: job.cwd, pid: job.pid, session_id: job.sessionId,
+    result_path: job.result?.resultPath, response_truncated: job.result?.truncated ?? false,
+    artifact_truncated: job.result?.artifactTruncated ?? false,
+    execution_success: job.status === "done" || job.status === "incomplete",
+    independent_acceptance: false,
+  } };
+}
+
 async function main() {
   const server = new McpServer({
     name: "qantara-codely",
-    version: "0.2.0",
+    version: "0.3.0",
   }, {
     instructions: "Codex decides and independently verifies; Codely only handles bounded technical work. " +
       "Never delegate visual design, visual review, image generation or image editing to Codely. " +
       "Supply an absolute project path, scope and acceptance criteria. Use background jobs and collect their results. " +
-      "Jobs and project exclusion are scoped to this server process; preserve a handoff for recovery.",
+      "Execution snapshots and project leases are shared through the local state directory. Never replay interrupted jobs automatically.",
   });
 
   const runners = exposedRunners([...config.expose]);
@@ -204,9 +224,6 @@ async function main() {
           return textResult(`Invalid project: ${err instanceof Error ? err.message : String(err)}`, true);
         }
         const projectKey = process.platform === "win32" ? project.toLowerCase() : project;
-        const active = listJobs().find((j) => j.cwd === projectKey &&
-          (j.status === "running" || j.status === "cancelling"));
-        if (active) return textResult(`Project already has an active job: ${active.id}.`, true);
         const sessionId = args.session_id;
 
         // A resumed session already saw the preamble on its first turn.
@@ -225,42 +242,48 @@ async function main() {
           depth: config.depth,
         };
 
-        const job = createJob(runner.name, args.task);
-        job.cwd = projectKey;
-        job.completion = runner
-            .run(task, {
-              ...runOpts,
+        let job: Job;
+        try { job = createJob(runner.name, args.task, projectKey); }
+        catch (err) { return textResult(err instanceof Error ? err.message : String(err), true); }
+        job.completion = (async () => {
+          try {
+            const res = await runner.run(task, {
+              ...runOpts, outputPath: answerPath(job),
               timeoutMs: args.background ? config.jobTimeoutMs : config.timeoutMs,
-              signal: job.abort.signal,
-              onSpawn: (pid) => { job.pid = pid; },
+              signal: job.abort!.signal,
+              onSpawn: (pid) => { job.pid = pid; saveJob(job); },
               onProgress: (event) => {
                 if (event.sessionId) job.sessionId = event.sessionId;
                 if (event.detail) job.progress = event.detail;
+                saveJob(job);
               },
-            })
-            .then((res) => {
-              if (job.status !== "running" && job.status !== "cancelling") return;
-              job.status = "done";
-              job.finishedAt = Date.now();
-              job.result = res;
-            })
-            .catch((err) => {
-              if (job.status !== "running" && job.status !== "cancelling") return;
-              const message = err instanceof Error ? err.message : String(err);
-              job.status = job.status === "cancelling" && message.includes("was cancelled")
-                ? "cancelled" : "failed";
-              job.finishedAt = Date.now();
-              job.error = message;
             });
+            job.status = res.truncated ? "incomplete" : "done";
+            job.result = res;
+          } catch (err) {
+            const message = err instanceof Error ? err.message : String(err);
+            job.status = job.status === "cancelling" && message.includes("was cancelled") ? "cancelled" : "failed";
+            job.error = message;
+          } finally {
+            job.finishedAt = Date.now();
+            try { saveJob(job); releaseProject(job); }
+            catch (err) {
+              job.status = "failed";
+              job.error = `Execution state could not be finalized; inspect retained lease: ${err}`;
+              process.stderr.write(`${job.error}\n`);
+              try { saveJob(job); } catch { /* keep lease and fail closed */ }
+            }
+          }
+        })();
         if (args.background) {
           debug(`job ${job.id} started`);
-          return textResult(
+          return { ...textResult(
             `Started background job "${job.id}" (${runner.name}). It runs while you ` +
               `continue working. Poll it with check_job (job_id: "${job.id}"), or — ` +
               `when you have no other work left — call wait_job to block until it ` +
               `finishes. ${job.pid ? `PID: ${job.pid}. ` : ""}` +
-              `Cancel with cancel_job. Jobs do not survive a host restart.`,
-          );
+              `Cancel with cancel_job. Execution snapshots survive restart; interrupted work is never replayed.`,
+          ), structuredContent: { job_id: job.id, status: job.status, pid: job.pid, cwd: job.cwd } };
         }
         await job.completion;
         return jobStatusResult(job);
@@ -344,13 +367,34 @@ async function main() {
         if (job.status !== "running") {
           return textResult(`Job "${job.id}" is already ${job.status}.`);
         }
+        if (!ownsJob(job) || !job.abort) return textResult("Job belongs to another bridge instance; cancel it through its live owner or reconcile it after interruption.", true);
         job.status = "cancelling";
+        saveJob(job);
         job.abort.abort();
         debug(`job ${job.id} cancellation requested`);
         return textResult(`Cancellation requested for job "${job.id}". Check its status; child descendants may need separate inspection.`);
       },
     );
   }
+
+  server.tool("recover_job", "Reconcile an interrupted execution after inspecting the CLI, descendants and partial changes. Does not replay work or accept the task.", {
+    job_id: z.string(), confirm_no_writers: z.literal(true), evidence: z.string().min(1).max(2000),
+  }, async (args) => {
+    try { return jobStatusResult(recoverJob(args.job_id, args.evidence)); }
+    catch (err) { return textResult(err instanceof Error ? err.message : String(err), true); }
+  });
+
+  let shuttingDown = false;
+  const shutdown = async () => {
+    if (shuttingDown) return; shuttingDown = true;
+    const own = listJobs().filter(j => ownsJob(j) && j.abort && ["running", "cancelling"].includes(j.status));
+    for (const job of own) { job.status = "cancelling"; saveJob(job); job.abort!.abort(); }
+    await Promise.all(own.map(j => j.completion));
+    process.exit(0);
+  };
+  process.once("SIGTERM", () => void shutdown());
+  process.once("SIGINT", () => void shutdown());
+  process.stdin.once("end", () => void shutdown());
 
   const transport = new StdioServerTransport();
   await server.connect(transport);

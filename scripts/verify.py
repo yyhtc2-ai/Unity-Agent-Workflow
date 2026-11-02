@@ -10,6 +10,7 @@ for name, args, cwd in [
     ("npm", ["ci", "--ignore-scripts", "--no-audit", "--no-fund"], bridge),
     ("npm", ["run", "build"], bridge),
     ("node", ["tests/codely-mcp.mjs"], bridge),
+    ("node", ["--test", "tests/regressions.test.mjs"], bridge),
 ]:
     command = shutil.which(name)
     if not command:

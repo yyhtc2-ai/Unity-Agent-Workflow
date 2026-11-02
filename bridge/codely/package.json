@@ -1,7 +1,7 @@
 {
-  "name": "qantara",
-  "version": "0.2.0",
-  "description": "Qantara (arched bridge): an MCP bridge that lets coding agents (Claude Code, Codex, Gemini) delegate tasks to each other.",
+  "name": "unity-agent-workflow-codely-bridge",
+  "version": "0.3.0",
+  "description": "Codely-only MCP bridge with persisted execution snapshots and shared project leases (Qantara-derived).",
   "keywords": [
     "mcp",
     "model-context-protocol",
@@ -15,15 +15,16 @@
   "author": "Ahmed Gamil <ahmed.gamil.codes@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ahmeedgamil/qantara.git"
+    "url": "git+https://github.com/yyhtc2-ai/Unity-Agent-Workflow.git",
+    "directory": "bridge/codely"
   },
-  "homepage": "https://github.com/ahmeedgamil/qantara#readme",
+  "homepage": "https://github.com/yyhtc2-ai/Unity-Agent-Workflow#readme",
   "bugs": {
-    "url": "https://github.com/ahmeedgamil/qantara/issues"
+    "url": "https://github.com/yyhtc2-ai/Unity-Agent-Workflow/issues"
   },
   "type": "module",
   "bin": {
-    "qantara": "dist/cli.js"
+    "codely-bridge": "dist/cli.js"
   },
   "files": [
     "dist",
@@ -34,7 +35,8 @@
     "build": "tsc -p tsconfig.json",
     "prepublishOnly": "npm run build",
     "dev": "tsc -p tsconfig.json --watch",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "test": "node tests/codely-mcp.mjs && node --test tests/regressions.test.mjs"
   },
   "engines": {
     "node": ">=18"
@@ -46,5 +48,6 @@
   "devDependencies": {
     "@types/node": "^22.0.0",
     "typescript": "^5.6.0"
-  }
+  },
+  "private": true
 }
