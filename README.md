@@ -119,14 +119,14 @@ codex mcp get codely_bridge
 
 | 组件 | 检查结果与边界 |
 | --- | --- |
-| MCP 桥接器 | 使用 Node 直接启动 CLI、标准路径接口和进程信号；已审查 macOS 路径，Windows 离线测试通过 |
+| MCP 桥接器 | 使用 Node 直接启动 CLI、标准路径接口和进程信号；已审查 macOS 路径，macOS GitHub runner 与 Windows 离线测试均通过 |
 | 安装与验证 | 新增跨平台 `install.py`、`verify.py`；原 `.ps1` 保留供 Windows 使用 |
 | 已安装 CLI 检查 | 移除 `APPDATA` 固定路径，改用 npm 全局目录或 `BRIDGE_CODELY_ENTRY`；构建后在 `bridge/codely` 内运行 `node tests/installed-mcp.mjs`，只检查入口和 MCP 工具发现，不调用模型 |
 | 交接数据库 | 使用 Python 标准库 `pathlib` 和 SQLite，遵循 `CODEX_HOME` 或用户主目录 |
 | Agent Foundry / Unity 工具 | 保留上游快照，未逐项执行全部技能，未验证 Mac Editor、原生依赖和其他外部集成 |
 | Apple Silicon / Intel | 本次未新增原生二进制依赖；Node、Codely、Unity 的架构支持取决于其发行版本，未完成双架构实机验证 |
 
-已添加 [跨平台离线 CI](.github/workflows/compatibility.yml)，在 macOS、Windows 和 Linux runner 上执行构建、模拟 CLI 集成测试及交接工具测试。结果以仓库 Actions 为准；CI 不安装 Codely、不登录账户、不启动 Unity。当前改动在 Windows 完成，不能据此声称 Mac 上的真实 Codely/Unity 链路已验证。
+已添加 [跨平台离线 CI](.github/workflows/compatibility.yml)，在 macOS、Windows 和 Linux runner 上执行构建、模拟 CLI 集成测试及交接工具测试。[首次运行](https://github.com/yyhtc2-ai/Unity-Agent-Workflow/actions/runs/41390148453)的 macOS 和 Linux 测试已通过，最新结果以仓库 Actions 为准；CI 不安装 Codely、不登录账户、不启动 Unity。当前改动在 Windows 完成，不能据此声称 Mac 上的真实 Codely/Unity 链路已验证。
 
 ## 验证和已知限制
 
